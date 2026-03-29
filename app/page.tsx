@@ -194,6 +194,7 @@ export default function Home() {
           </div>
 
           <div className="text-gray-400 text-sm mt-4">
+            Właścicielem marki jest
             <p className="text-white font-medium mb-2">
               ASPERION Łukasz Korgul
             </p>
@@ -228,6 +229,100 @@ export default function Home() {
       </div>
     </div>
   </FadeIn>
+</section>
+{/* FOOTER + POLITYKA PRYWATNOŚCI */}
+<section className="px-6 py-16 border-t border-white/10">
+
+  {/* HEADER FOOTERA */}
+  <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+
+    <p className="text-gray-500 text-sm text-center md:text-left">
+      © {new Date().getFullYear()} MRGEEK. All rights reserved ®
+    </p>
+
+    {/* PRZYCISK ROZWIJANIA */}
+    <button
+      onClick={() => setOpenIndex(openIndex === 999 ? null : 999)}
+      className="text-sm text-gray-300 hover:text-white transition flex items-center gap-2"
+    >
+      Polityka prywatności
+      <span className={`transition ${openIndex === 999 ? "rotate-180" : ""}`}>
+        ▼
+      </span>
+    </button>
+
+  </div>
+
+  {/* ACCORDION */}
+  <div
+    className={`max-w-6xl mx-auto overflow-hidden transition-all duration-500 ${
+      openIndex === 999 ? "max-h-[2000px] mt-10 opacity-100" : "max-h-0 opacity-0"
+    }`}
+  >
+    <div className="bg-white/5 border border-white/10 rounded-2xl p-8 text-gray-400 text-sm leading-relaxed space-y-6">
+
+      <p className="text-white font-medium">
+        Polityka prywatności
+      </p>
+
+      <p>
+        Administratorem danych osobowych jest ASPERION Łukasz Korgul, z siedzibą w Krakowie.
+        Kontakt: kontakt@asperion.pl.
+      </p>
+
+      <p>
+        Dane osobowe są przetwarzane wyłącznie w celu kontaktu z klientem,
+        realizacji usług oraz odpowiedzi na zapytania.
+      </p>
+
+      <p>
+        Podanie danych jest dobrowolne, ale niezbędne do skorzystania z usług
+        lub kontaktu.
+      </p>
+
+      <p>
+        Podstawą przetwarzania danych jest:
+        <br />– zgoda użytkownika (art. 6 ust. 1 lit. a RODO)
+        <br />– realizacja umowy lub działania przed jej zawarciem (art. 6 ust. 1 lit. b RODO)
+      </p>
+
+      <p>
+        Dane nie są sprzedawane ani udostępniane podmiotom trzecim,
+        z wyjątkiem sytuacji wymaganych przepisami prawa.
+      </p>
+
+      <p>
+        Dane mogą być przechowywane przez czas niezbędny do realizacji celu kontaktu
+        oraz obowiązków prawnych.
+      </p>
+
+      <p>
+        Użytkownik ma prawo do:
+        <br />– dostępu do swoich danych
+        <br />– ich sprostowania
+        <br />– usunięcia
+        <br />– ograniczenia przetwarzania
+        <br />– wniesienia sprzeciwu
+      </p>
+
+      <p>
+        W sprawach związanych z danymi osobowymi można kontaktować się
+        pod adresem: kontakt@asperion.pl
+      </p>
+
+      <p>
+        Strona może wykorzystywać pliki cookies w celu poprawnego działania
+        oraz analizy ruchu. Korzystanie ze strony oznacza ich akceptację.
+      </p>
+
+      <p>
+        Administrator dokłada wszelkich starań, aby zapewnić bezpieczeństwo danych
+        zgodnie z obowiązującymi przepisami.
+      </p>
+
+    </div>
+  </div>
+
 </section>
 
     </main>
