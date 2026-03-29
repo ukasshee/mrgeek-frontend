@@ -227,6 +227,16 @@ export default function Home() {
             <p className="mt-2">NIP: 5562441108</p>
             <p>REGON: —</p>
           </div>
+
+          <div className="text-gray-400 text-sm mt-4">
+            Serwis stacjonarny
+            <p className="text-white font-medium mb-2">
+              MRGEEK Serwis Komputerowy
+            </p>
+            <p>ul. Dobrego Pasterza 100</p>
+            <p>31-416 Kraków</p>
+            mapa:
+          </div>
         </div>
 
         <div className="w-full md:w-[50%]">
