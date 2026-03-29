@@ -15,7 +15,7 @@ export default function Home() {
         <div className="flex items-center gap-3">
           <img src="/logo.png" className="h-8 w-auto object-contain" />
           <span className="text-sm md:text-base font-semibold tracking-wide">
-            MRGEEK
+            MrGeek
           </span>
         </div>
 
