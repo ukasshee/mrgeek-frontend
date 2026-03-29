@@ -1,34 +1,36 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import FadeIn from "./components/FadeIn";
 
-async function getPages() {
-  const res = await fetch("https://mrgeek.pl/wp-json/wp/v2/pages", {
-    cache: "no-store",
-  });
+export default function Home() {
+  const [pages, setPages] = useState<any[]>([]);
 
-  return res.json();
-}
-
-export default async function Home() {
-  const pages = await getPages();
+  useEffect(() => {
+    fetch("https://wp.mrgeek.pl/wp-json/wp/v2/pages")
+      .then((res) => res.json())
+      .then((data) => setPages(data))
+      .catch(() => setPages([]));
+  }, []);
 
   return (
-    <main className="bg-black text-white min-h-screen">
+    <main className="text-white min-h-screen">
 
       {/* HERO */}
       <section
         id="top"
         className="relative flex flex-col items-center justify-center text-center h-screen px-6 overflow-hidden"
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-neutral-900 via-black to-black opacity-80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#111111] via-[#0a0a0a] to-[#050505]" />
 
         <FadeIn>
           <div className="relative z-10 max-w-4xl">
             <h1 className="text-5xl md:text-7xl font-semibold tracking-tight mb-6">
-              Strefa wsparcia TECH
+              Tworzymy cyfrowe doświadczenia
             </h1>
 
             <p className="text-lg md:text-xl text-gray-400 mb-10 leading-relaxed">
-              Serwis elektroniki, Mikro-naprawy, Strony internetowe
+              Strony internetowe, automatyzacje i rozwiązania IT zaprojektowane
               z myślą o prostocie, wydajności i estetyce.
             </p>
 
@@ -93,7 +95,7 @@ export default async function Home() {
         </FadeIn>
 
         <div className="space-y-12">
-          {pages.map((page: any) => (
+          {pages.map((page) => (
             <FadeIn key={page.id}>
               <div className="border-b border-white/10 pb-8">
                 <h3 className="text-2xl font-semibold mb-4">
