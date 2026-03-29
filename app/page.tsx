@@ -25,6 +25,11 @@ export default function Home() {
 
         <FadeIn>
           <div className="relative z-10 max-w-4xl">
+            <img
+            src="/logo.png"
+            alt="MRGEEK"
+             className="mx-auto mb-8 w-24 md:w-32 opacity-90"
+            />
             <h1 className="text-5xl md:text-7xl font-semibold tracking-tight mb-6">
               Strefa Wsparcia IT
             </h1>
