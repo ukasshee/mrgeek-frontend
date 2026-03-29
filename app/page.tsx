@@ -35,8 +35,7 @@ export default function Home() {
             </h1>
 
             <p className="text-lg md:text-xl text-gray-400 mb-10 leading-relaxed">
-              SERWIS ELEKTRONIKI - STRONY INTERNETOWE - SIECI - 
-              plus - iPhony iPady MacBooki.
+              SERWIS ELEKTRONIKI - BUDOWA KOMPUTERÓW - STRONY INTERNETOWE - SIECI + iPhony iPady MacBooki.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
