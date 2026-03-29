@@ -68,7 +68,7 @@ export default function Home() {
           {[
             {
               title: "Naprawa elektroniki",
-              desc: "Serwis PC, laptopów i urządzeń Apple.",
+              desc: "Kompleksowa diagnostyka i naprawa komputerów stacjonarnych, laptopów oraz urządzeń Apple. Identyfikujemy rzeczywistą przyczynę problemu zamiast maskować jego objawy, co pozwala uniknąć niepotrzebnych kosztów. Realizujemy zarówno drobne naprawy, jak i zaawansowane serwisy sprzętowe, dbając o stabilność i bezpieczeństwo urządzenia po wykonanej usłudze. Każde zlecenie traktujemy indywidualnie, stawiając na skuteczność i przejrzystość procesu.",
               icon: (
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M5 7h14v10H5z"/>
@@ -76,23 +76,24 @@ export default function Home() {
               ),
             },
             {
-              title: "Strony internetowe",
-              desc: "Nowoczesne realizacje.",
-              icon: (
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M8 9l-3 3 3 3M16 9l3 3-3 3"/>
-                </svg>
-              ),
-            },
-            {
               title: "Budowa komputerów",
-              desc: "Zestawy dopasowane do potrzeb.",
+              desc: "Składamy komputery od podstaw, dobierając komponenty precyzyjnie pod konkretne zastosowanie – od pracy biurowej, przez grafikę, aż po zaawansowane zestawy gamingowe. Każda konfiguracja jest zoptymalizowana pod kątem wydajności, kompatybilności i budżetu, bez przypadkowych elementów. Oferujemy również doradztwo, modernizacje oraz przygotowanie sprzętu do pracy od razu po uruchomieniu.",
               icon: (
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                   <rect x="6" y="4" width="12" height="16" rx="2"/>
                 </svg>
               ),
             },
+            {
+              title: "Strony internetowe",
+              desc: "Projektujemy i wdrażamy nowoczesne strony internetowe dopasowane do realnych potrzeb biznesu. Tworzymy rozwiązania, które są szybkie, responsywne i intuicyjne dla użytkownika, a jednocześnie przygotowane pod widoczność w wyszukiwarkach. Skupiamy się na funkcjonalności, estetyce i konwersji, aby strona nie tylko dobrze wyglądała, ale przede wszystkim spełniała swoją rolę – pozyskiwała klientów i wspierała rozwój firmy.",
+              icon: (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M8 9l-3 3 3 3M16 9l3 3-3 3"/>
+                </svg>
+              ),
+            },
+            
           ].map((item, i) => {
             const isOpen = openIndex === i;
 
