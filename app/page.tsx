@@ -140,34 +140,72 @@ export default function Home() {
       </section>*/}
 
       {/* KONTAKT */}
-      <section
-        id="kontakt"
-        className="px-6 py-32 text-center border-t border-white/10"
-      >
-        <FadeIn>
-          <h2 className="text-3xl md:text-4xl font-semibold mb-6">
-            Porozmawiajmy o tym co możemy dla Ciebie zrobić.
-          </h2>
+      {/* KONTAKT */}
+{/* KONTAKT */}
+<section
+  id="kontakt"
+  className="px-6 py-24 border-t border-white/10"
+>
+  <FadeIn>
+    <div className="max-w-5xl mx-auto text-center mb-12">
+      <h2 className="text-3xl md:text-4xl font-semibold">
+        Kontakt
+      </h2>
+    </div>
+  </FadeIn>
 
-          <p className="text-gray-400 mb-10">
-            KONTAKT:
-            Tel +48 690 690 776
-            email: kontakt@asperion.pl
+  <FadeIn>
+    <div className="max-w-5xl mx-auto rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-8 md:p-12">
 
-            Właścicielem marki jest:
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+
+        {/* LEWA */}
+        <div className="flex flex-col gap-6 text-left">
+
+          {/* TELEFON */}
+          <div className="flex items-center gap-4">
+            <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a1.5 1.5 0 001.5-1.5v-1.372c0-.516-.351-.966-.852-1.09l-4.423-1.106a1.5 1.5 0 00-1.465.417l-.97 1.293a12.042 12.042 0 01-5.658-5.658l1.293-.97a1.5 1.5 0 00.417-1.465L8.212 4.102a1.125 1.125 0 00-1.09-.852H5.75a1.5 1.5 0 00-1.5 1.5v2z" />
+              </svg>
+            </div>
+
+            <a href="tel:+48690690776" className="text-white text-lg font-medium hover:text-gray-300 transition">
+              +48 690 690 776
+            </a>
+          </div>
+
+          {/* EMAIL */}
+          <div className="flex items-center gap-4">
+            <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25H4.5a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5H4.5a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.914A2.25 2.25 0 012.25 6.993V6.75" />
+              </svg>
+            </div>
+
+            <a href="mailto:kontakt@asperion.pl" className="text-white text-lg font-medium hover:text-gray-300 transition break-all">
+              kontakt@asperion.pl
+            </a>
+          </div>
+
+        </div>
+
+        {/* PRAWA */}
+        <div className="text-left md:text-right text-gray-400 text-sm leading-relaxed">
+          <p className="text-white font-medium mb-2">
             ASPERION Łukasz Korgul
-            ul. Karola Darwina 62GE/2
-            31-764 KRAKÓW
-            Nip: 5562441108
-            Regon: 
-
           </p>
+          <p>ul. Karola Darwina 62GE/2</p>
+          <p>31-764 Kraków</p>
+          <p className="mt-3">NIP: 5562441108</p>
+          <p>REGON: —</p>
+        </div>
 
-          <button className="bg-white text-black px-8 py-3 rounded-full font-medium hover:scale-105 transition">
-            Kontakt
-          </button>
-        </FadeIn>
-      </section>
+      </div>
+
+    </div>
+  </FadeIn>
+</section>
 
     </main>
   );
