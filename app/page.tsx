@@ -28,15 +28,15 @@ export default function Home() {
             <img
             src="/logo.png"
             alt="MRGEEK"
-             className="mx-auto mb-8 w-24 md:w-32 opacity-90"
+             className="mx-auto mb-8 w-28 md:w-36"
             />
             <h1 className="text-5xl md:text-7xl font-semibold tracking-tight mb-6">
-              Strefa Wsparcia IT
+              STREFA WSPARCIA TECH-IT
             </h1>
 
             <p className="text-lg md:text-xl text-gray-400 mb-10 leading-relaxed">
-              Strony internetowe, automatyzacje i rozwiązania IT zaprojektowane
-              z myślą o prostocie, wydajności i estetyce.
+              SERWIS ELEKTRONIKI - STRONY INTERNETOWE - SIECI - 
+              plus - iPhony iPady MacBooki.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
