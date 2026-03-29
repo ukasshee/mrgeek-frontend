@@ -57,76 +57,99 @@ export default function Home() {
       </section>
 
       {/* USŁUGI */}
-      <section id="oferta" className="px-6 py-24 max-w-6xl mx-auto">
+      {/* USŁUGI */}
+<section id="oferta" className="px-6 py-24 max-w-6xl mx-auto">
 
-        <h2 className="text-3xl md:text-4xl font-semibold mb-16 text-center">
-          Co robimy
-        </h2>
+  <FadeIn>
+    <h2 className="text-3xl md:text-4xl font-semibold mb-16 text-center">
+      Co robimy
+    </h2>
+  </FadeIn>
 
-        <div className="grid md:grid-cols-3 gap-8">
+  <div className="grid md:grid-cols-3 gap-8">
 
-          {[
-            {
-              title: "Naprawa elektroniki",
-              desc: "Kompleksowa diagnostyka i naprawa komputerów stacjonarnych, laptopów oraz urządzeń Apple. Identyfikujemy rzeczywistą przyczynę problemu zamiast maskować jego objawy, co pozwala uniknąć niepotrzebnych kosztów. Realizujemy zarówno drobne naprawy, jak i zaawansowane serwisy sprzętowe, dbając o stabilność i bezpieczeństwo urządzenia po wykonanej usłudze. Każde zlecenie traktujemy indywidualnie, stawiając na skuteczność i przejrzystość procesu.",
-              icon: (
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 7h14v10H5z"/>
-                </svg>
-              ),
-            },
-            {
-              title: "Budowa komputerów",
-              desc: "Składamy komputery od podstaw, dobierając komponenty precyzyjnie pod konkretne zastosowanie – od pracy biurowej, przez grafikę, aż po zaawansowane zestawy gamingowe. Każda konfiguracja jest zoptymalizowana pod kątem wydajności, kompatybilności i budżetu, bez przypadkowych elementów. Oferujemy również doradztwo, modernizacje oraz przygotowanie sprzętu do pracy od razu po uruchomieniu.",
-              icon: (
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-                  <rect x="6" y="4" width="12" height="16" rx="2"/>
-                </svg>
-              ),
-            },
-            {
-              title: "Strony internetowe",
-              desc: "Projektujemy i wdrażamy nowoczesne strony internetowe dopasowane do realnych potrzeb biznesu. Tworzymy rozwiązania, które są szybkie, responsywne i intuicyjne dla użytkownika, a jednocześnie przygotowane pod widoczność w wyszukiwarkach. Skupiamy się na funkcjonalności, estetyce i konwersji, aby strona nie tylko dobrze wyglądała, ale przede wszystkim spełniała swoją rolę – pozyskiwała klientów i wspierała rozwój firmy.",
-              icon: (
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M8 9l-3 3 3 3M16 9l3 3-3 3"/>
-                </svg>
-              ),
-            },
-            
-          ].map((item, i) => {
-            const isOpen = openIndex === i;
+    {[
+      {
+        title: "Naprawa elektroniki",
+        desc: "Kompleksowa diagnostyka i naprawa komputerów stacjonarnych, laptopów oraz urządzeń Apple. Identyfikujemy rzeczywistą przyczynę problemu zamiast maskować jego objawy, co pozwala uniknąć niepotrzebnych kosztów. Realizujemy zarówno drobne naprawy, jak i zaawansowane serwisy sprzętowe, dbając o stabilność i bezpieczeństwo urządzenia po wykonanej usłudze.",
+        icon: (
+          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M5 7h14v10H5z"/>
+          </svg>
+        ),
+      },
+      {
+        title: "Strony internetowe",
+        desc: "Projektujemy i wdrażamy nowoczesne strony internetowe dopasowane do realnych potrzeb biznesu. Tworzymy rozwiązania szybkie, responsywne i intuicyjne dla użytkownika, a jednocześnie przygotowane pod widoczność w wyszukiwarkach. Skupiamy się na funkcjonalności, estetyce i konwersji.",
+        icon: (
+          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M8 9l-3 3 3 3M16 9l3 3-3 3"/>
+          </svg>
+        ),
+      },
+      {
+        title: "Budowa komputerów",
+        desc: "Składamy komputery od podstaw, dobierając komponenty precyzyjnie pod konkretne zastosowanie – od pracy biurowej po zaawansowane zestawy gamingowe. Każda konfiguracja jest zoptymalizowana pod kątem wydajności, kompatybilności i budżetu.",
+        icon: (
+          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+            <rect x="6" y="4" width="12" height="16" rx="2"/>
+          </svg>
+        ),
+      },
+    ].map((item, i) => {
+      const isOpen = openIndex === i;
 
-            return (
-              <FadeIn key={i}>
-                <div
-                  onClick={() => setOpenIndex(isOpen ? null : i)}
-                  className="p-8 rounded-2xl bg-white/5 border border-white/10 cursor-pointer"
-                >
-                  <div className="flex justify-between items-center">
+      return (
+        <FadeIn key={i}>
+          <div
+            onClick={() => setOpenIndex(isOpen ? null : i)}
+            className="group p-8 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition cursor-pointer"
+          >
 
-                    <div className="flex items-center gap-4">
-                      {item.icon}
-                      <h3>{item.title}</h3>
-                    </div>
+            {/* HEADER */}
+            <div className="flex items-center justify-between">
 
-                    <div className={`${isOpen ? "rotate-180" : ""} transition`}>
-                      ▼
-                    </div>
-
-                  </div>
-
-                  <div className={`overflow-hidden transition-all ${isOpen ? "max-h-40 mt-4" : "max-h-0"}`}>
-                    <p className="text-gray-400">{item.desc}</p>
-                  </div>
-
+              <div className="flex items-center gap-4">
+                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:scale-110 transition">
+                  {item.icon}
                 </div>
-              </FadeIn>
-            );
-          })}
 
-        </div>
-      </section>
+                <h3 className="text-lg font-medium">
+                  {item.title}
+                </h3>
+              </div>
+
+              {/* STRZAŁKA */}
+              <div className={`transition transform ${isOpen ? "rotate-180" : ""}`}>
+                <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </div>
+
+            </div>
+
+            {/* OPIS — dynamiczny */}
+            <div
+              style={{
+                maxHeight: isOpen ? "1000px" : "0px",
+              }}
+              className="overflow-hidden transition-all duration-500 ease-in-out"
+            >
+              <div className="pt-4">
+                <p className="text-gray-400 text-sm leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </FadeIn>
+      );
+    })}
+
+  </div>
+
+</section>
 
       {/* KONTAKT */}
       
