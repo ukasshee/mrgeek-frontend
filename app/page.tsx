@@ -26,7 +26,7 @@ export default function Home() {
         <FadeIn>
           <div className="relative z-10 max-w-4xl">
             <h1 className="text-5xl md:text-7xl font-semibold tracking-tight mb-6">
-              Tworzymy cyfrowe doświadczenia
+              Strefa Wsparcia IT
             </h1>
 
             <p className="text-lg md:text-xl text-gray-400 mb-10 leading-relaxed">
