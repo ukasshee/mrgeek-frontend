@@ -15,7 +15,28 @@ export default function Home() {
 
   return (
     <main className="text-white min-h-screen">
+      <header className="fixed top-0 left-0 w-full z-50 px-6 py-4 flex items-center justify-between bg-black/60 backdrop-blur-md border-b border-white/10">
 
+  {/* LEWA STRONA */}
+  <div className="flex items-center gap-3">
+    <img
+      src="/logo.png"
+      alt="MRGEEK"
+      className="h-8 w-auto object-contain"
+    />
+
+    <span className="text-sm md:text-base font-semibold tracking-wide">
+      MRGEEK
+    </span>
+  </div>
+
+  {/* PRAWA STRONA */}
+  <nav className="hidden md:flex gap-8 text-sm text-gray-300">
+    <a href="#oferta" className="hover:text-white transition">Oferta</a>
+    <a href="#kontakt" className="hover:text-white transition">Kontakt</a>
+  </nav>
+
+</header>
       {/* HERO */}
       <section
         id="top"
@@ -35,7 +56,7 @@ export default function Home() {
             </h1>
 
             <p className="text-lg md:text-xl text-gray-400 mb-10 leading-relaxed">
-              SERWIS ELEKTRONIKI - BUDOWA KOMPUTERÓW - STRONY INTERNETOWE - SIECI + iPhony iPady MacBooki.
+              SERWIS ELEKTRONIKI - BUDOWA KOMPUTERÓW - STRONY INTERNETOWE - SIECI
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -90,7 +111,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* WORDPRESS DATA */}
+      {/* WORDPRESS DATA 
       <section className="px-6 py-24 max-w-4xl mx-auto">
         <FadeIn>
           <h2 className="text-3xl font-semibold mb-12 text-center">
@@ -116,7 +137,7 @@ export default function Home() {
             </FadeIn>
           ))}
         </div>
-      </section>
+      </section>*/}
 
       {/* KONTAKT */}
       <section
@@ -125,11 +146,21 @@ export default function Home() {
       >
         <FadeIn>
           <h2 className="text-3xl md:text-4xl font-semibold mb-6">
-            Porozmawiajmy o projekcie
+            Porozmawiajmy o tym co możemy dla Ciebie zrobić.
           </h2>
 
           <p className="text-gray-400 mb-10">
-            Skontaktuj się i zobacz, co możemy razem stworzyć.
+            KONTAKT:
+            Tel +48 690 690 776
+            email: kontakt@asperion.pl
+
+            Właścicielem marki jest:
+            ASPERION Łukasz Korgul
+            ul. Karola Darwina 62GE/2
+            31-764 KRAKÓW
+            Nip: 5562441108
+            Regon: 
+
           </p>
 
           <button className="bg-white text-black px-8 py-3 rounded-full font-medium hover:scale-105 transition">
