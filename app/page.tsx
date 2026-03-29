@@ -68,16 +68,16 @@ export default function Home() {
         <div className="grid md:grid-cols-3 gap-8">
           {[
             {
-              title: "Strony internetowe",
-              desc: "Nowoczesne, szybkie i zoptymalizowane pod SEO.",
+              title: "Naprawa Elektroniki",
+              desc: "Ponad 25 lat doświadczenia. Naprawa komuterów PC, laptopów oraz urządzeń Apple.",
             },
             {
-              title: "Automatyzacje",
-              desc: "Oszczędzaj czas dzięki inteligentnym procesom.",
+              title: "Projektowanie stron internetowych",
+              desc: "Budowa nowoczesnych i zoptymlizowanych stron - dedykowanych pod zamówienie i potrzeby klienta.",
             },
             {
-              title: "Rozwiązania IT",
-              desc: "Dedykowane systemy dopasowane do Twojego biznesu.",
+              title: "BUDOWA KOMPUTERÓW",
+              desc: "Składamy sysytemy gamingowe pod celowane wymagania gracza.",
             },
           ].map((item, i) => (
             <FadeIn key={i}>
