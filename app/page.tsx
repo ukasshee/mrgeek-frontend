@@ -31,7 +31,7 @@ export default function Home() {
   </div>
 
   {/* PRAWA STRONA */}
-  <nav className="hidden md:flex gap-8 text-sm text-gray-300">
+  <nav className="flex gap-4 md:gap-8 text-sm text-gray-300">
     <a href="#oferta" className="hover:text-white transition">Oferta</a>
     <a href="#kontakt" className="hover:text-white transition">Kontakt</a>
   </nav>
