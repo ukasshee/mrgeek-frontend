@@ -128,28 +128,91 @@ export default function Home() {
       </section>
 
       {/* KONTAKT */}
-      <section id="kontakt" className="px-6 py-24 border-t border-white/10">
+      {/* KONTAKT */}
+<section id="kontakt" className="px-6 py-24 border-t border-white/10">
 
-        <h2 className="text-3xl text-center mb-12">
-          Kontakt
-        </h2>
+  <FadeIn>
+    <div className="max-w-5xl mx-auto text-center mb-12">
+      <h2 className="text-3xl md:text-4xl font-semibold">
+        Kontakt
+      </h2>
+    </div>
+  </FadeIn>
 
-        <div className="max-w-5xl mx-auto flex flex-col md:flex-row justify-between gap-8">
+  <FadeIn>
+    <div className="max-w-5xl mx-auto rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-8 md:p-12">
 
-          <div className="flex flex-col gap-4">
-            <a href="tel:+48690690776">+48 690 690 776</a>
-            <a href="mailto:kontakt@asperion.pl">kontakt@asperion.pl</a>
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-10">
+
+        {/* LEWA STRONA */}
+        <div className="flex flex-col gap-6">
+
+          {/* TELEFON */}
+          <div className="flex items-center gap-4">
+            <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
+              <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 5.25a2.25 2.25 0 012.25-2.25h2.1c.52 0 .99.34 1.15.84l1.2 3.6c.14.42.02.88-.31 1.18l-1.27 1.27a12.06 12.06 0 005.66 5.66l1.27-1.27c.3-.33.76-.45 1.18-.31l3.6 1.2c.5.16.84.63.84 1.15v2.1A2.25 2.25 0 0118.75 21h-.5C9.82 21 3 14.18 3 5.75v-.5z"/>
+              </svg>
+            </div>
+
+            <a href="tel:+48690690776" className="text-lg font-medium hover:text-gray-300 transition">
+              +48 690 690 776
+            </a>
           </div>
 
-          <div className="text-gray-400 text-sm">
-            ASPERION Łukasz Korgul<br/>
-            Kraków<br/>
-            NIP: 5562441108
+          {/* EMAIL */}
+          <div className="flex items-center gap-4">
+            <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
+              <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25H4.5a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5H4.5a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.914A2.25 2.25 0 012.25 6.993V6.75"/>
+              </svg>
+            </div>
+
+            <a href="mailto:kontakt@asperion.pl" className="text-lg font-medium hover:text-gray-300 transition">
+              kontakt@asperion.pl
+            </a>
+          </div>
+
+          {/* DANE FIRMY */}
+          <div className="text-gray-400 text-sm mt-4">
+            <p className="text-white font-medium mb-2">
+              ASPERION Łukasz Korgul
+            </p>
+            <p>ul. Karola Darwina 62GE/2</p>
+            <p>31-764 Kraków</p>
+            <p className="mt-2">NIP: 5562441108</p>
+            <p>REGON: —</p>
           </div>
 
         </div>
 
-      </section>
+        {/* PRAWA STRONA — MAPA */}
+        <div className="w-full md:w-[50%]">
+
+          <iframe
+            src="https://www.google.com/maps?q=ul.%20Karola%20Darwina%2062,%20Kraków&output=embed"
+            className="w-full h-[260px] md:h-[320px] rounded-xl border border-white/10"
+            loading="lazy"
+          />
+
+          <div className="mt-4 text-center">
+            <a
+              href="https://maps.google.com/?q=ul.%20Karola%20Darwina%2062,%20Kraków"
+              target="_blank"
+              className="inline-block border border-white/20 px-6 py-2 rounded-full text-sm hover:bg-white hover:text-black transition"
+            >
+              Otwórz w Google Maps
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </FadeIn>
+
+</section>
 
     </main>
   );
