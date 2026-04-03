@@ -226,7 +226,7 @@ export default function Home() {
             <p>31-764 Kraków</p>
             <p className="mt-2">NIP: 5562441108</p>
             <p>REGON: 093214846</p>
-            <p>Email: kontakt@mrgeek.pl</p>
+            <p>Email: kontakt@asperion.pl</p>
             <p>Tel: +48 690690776</p>
           </div>
 
