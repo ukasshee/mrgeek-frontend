@@ -210,10 +210,10 @@ export default function Home() {
             </div>
 
             <a
-              href="mailto:kontakt@asperion.pl"
+              href="mailto:kontakt@mrgeek.pl"
               className="text-lg font-medium hover:text-gray-300 transition"
             >
-              kontakt@asperion.pl
+              kontakt@mrgeek.pl
             </a>
           </div>
 
@@ -225,7 +225,7 @@ export default function Home() {
             <p>ul. Karola Darwina 62GE/2</p>
             <p>31-764 Kraków</p>
             <p className="mt-2">NIP: 5562441108</p>
-            <p>REGON: —</p>
+            <p>REGON: 093214846</p>
           </div>
 
           <div className="text-gray-400 text-sm mt-4">
