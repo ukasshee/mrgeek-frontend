@@ -36,7 +36,7 @@ export default function Home() {
             <img src="/logo.png" className="mx-auto mb-8 w-28 md:w-36" />
 
             <h1 className="text-5xl md:text-7xl font-semibold mb-6">
-              STREFA WSPARCIA TECH-IT
+              WSPARCIE TECH-IT KRAKÓW
             </h1>
 
             <p className="text-gray-400 mb-10">
@@ -220,7 +220,7 @@ export default function Home() {
           <div className="text-gray-400 text-sm mt-4">
             Właścicielem marki jest
             <p className="text-white font-medium mb-2">
-              ASPERION Łukasz Korgul
+              ASPERION
             </p>
             <p>ul. Karola Darwina 62GE/2</p>
             <p>31-764 Kraków</p>
