@@ -232,11 +232,12 @@ export default function Home() {
             <p className="text-white font-medium mb-2">
               ASPERION
             </p>
-            <p>https://asperion.pl</p>
+            
             <p>ul. Karola Darwina 62GE/2</p>
             <p>31-764 Kraków</p>
             <p className="mt-2">NIP: 5562441108</p>
             <p>REGON: 093214846</p>
+            <p>Web: www.asperion.pl</p>
             <p>Email: kontakt@asperion.pl</p>
             <p>Tel: +48 690690776</p>
 
