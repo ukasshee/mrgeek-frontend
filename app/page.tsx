@@ -218,6 +218,16 @@ export default function Home() {
           </div>
 
           <div className="text-gray-400 text-sm mt-4">
+            Serwis stacjonarny
+            <p className="text-white font-medium mb-2">
+              MRGEEK Serwis Komputerowy
+            </p>
+            <p>ul. Dobrego Pasterza 100</p>
+            <p>31-416 Kraków</p>
+            mapa:
+          </div>
+
+          <div className="text-gray-400 text-sm mt-4">
             Właścicielem marki jest
             <p className="text-white font-medium mb-2">
               ASPERION
@@ -228,17 +238,10 @@ export default function Home() {
             <p>REGON: 093214846</p>
             <p>Email: kontakt@asperion.pl</p>
             <p>Tel: +48 690690776</p>
+
           </div>
 
-          <div className="text-gray-400 text-sm mt-4">
-            Serwis stacjonarny
-            <p className="text-white font-medium mb-2">
-              MRGEEK Serwis Komputerowy
-            </p>
-            <p>ul. Dobrego Pasterza 100</p>
-            <p>31-416 Kraków</p>
-            mapa:
-          </div>
+          
         </div>
 
         <div className="w-full md:w-[50%]">
