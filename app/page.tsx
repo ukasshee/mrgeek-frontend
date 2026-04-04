@@ -5,21 +5,85 @@ import FadeIn from "@/app/components/FadeIn";
 
 export default function Home() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const [isLight, setIsLight] = useState(false);
   const [privacyOpen, setPrivacyOpen] = useState(false);
+  const [isLight, setIsLight] = useState(false);
+  const [isEN, setIsEN] = useState(false);
+
+  const logoSrc = isLight ? "/logo-black.png" : "/logo.png";
+
+  const t = {
+    navOffer: isEN ? "Services" : "Oferta",
+    navContact: isEN ? "Contact" : "Kontakt",
+
+    heroTitle: isEN ? "TECH SUPPORT ZONE" : "STREFA WSPARCIA TECH-IT",
+    heroDesc: isEN
+      ? "ELECTRONICS REPAIR • CUSTOM PCS • WEBSITES • NETWORKS"
+      : "SERWIS ELEKTRONIKI • BUDOWA KOMPUTERÓW • STRONY INTERNETOWE • SIECI",
+    heroOffer: isEN ? "View services" : "Zobacz ofertę",
+    heroCall: isEN ? "Call now" : "Zadzwoń",
+
+    servicesTitle: isEN ? "What we do" : "Co robimy",
+
+    contactTitle: isEN ? "Contact" : "Kontakt",
+    openMaps: isEN ? "Open in Google Maps" : "Otwórz w Google Maps",
+
+    privacyTitle: isEN ? "Privacy Policy" : "Polityka prywatności",
+    rights: isEN
+      ? `© ${new Date().getFullYear()} MRGEEK. All rights reserved ®`
+      : `© ${new Date().getFullYear()} MRGEEK. All rights reserved ®`,
+  };
 
   const services = [
     {
-      title: isLight ? "Naprawa elektroniki" : "Naprawa elektroniki",
-      desc: "Kompleksowa diagnostyka i naprawa komputerów stacjonarnych, laptopów oraz urządzeń Apple. Identyfikujemy rzeczywistą przyczynę problemu zamiast maskować jego objawy, co pozwala uniknąć niepotrzebnych kosztów. Realizujemy zarówno drobne naprawy, jak i bardziej zaawansowane serwisy sprzętowe, dbając o stabilność i bezpieczeństwo urządzenia po wykonanej usłudze.",
+      title: isEN ? "Electronics repair" : "Naprawa elektroniki",
+      desc: isEN
+        ? "Comprehensive diagnostics and repair of desktop computers, laptops, and Apple devices. We identify the real cause of the issue instead of masking its symptoms, helping you avoid unnecessary costs. We handle both minor repairs and more advanced hardware service, with a strong focus on stability, safety, and long-term reliability after the work is completed."
+        : "Kompleksowa diagnostyka i naprawa komputerów stacjonarnych, laptopów oraz urządzeń Apple. Identyfikujemy rzeczywistą przyczynę problemu zamiast maskować jego objawy, co pozwala uniknąć niepotrzebnych kosztów. Realizujemy zarówno drobne naprawy, jak i bardziej zaawansowane serwisy sprzętowe, dbając o stabilność i bezpieczeństwo urządzenia po wykonanej usłudze.",
+      icon: (
+        <svg
+          className="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          viewBox="0 0 24 24"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="M5 7h14v10H5z" />
+        </svg>
+      ),
     },
     {
-      title: "Strony internetowe",
-      desc: "Projektujemy i wdrażamy nowoczesne strony internetowe dopasowane do realnych potrzeb biznesu. Tworzymy rozwiązania szybkie, responsywne i intuicyjne dla użytkownika, a jednocześnie przygotowane pod widoczność w wyszukiwarkach. Skupiamy się na funkcjonalności, estetyce i przejrzystej komunikacji oferty.",
+      title: isEN ? "Web development" : "Strony internetowe",
+      desc: isEN
+        ? "We design and deliver modern websites tailored to real business needs. Our solutions are fast, responsive, and intuitive for users, while also being built with visibility, performance, and clarity in mind. We focus on functionality, aesthetics, and effective presentation, so the website not only looks professional but also supports the growth of your business."
+        : "Projektujemy i wdrażamy nowoczesne strony internetowe dopasowane do realnych potrzeb biznesu. Tworzymy rozwiązania szybkie, responsywne i intuicyjne dla użytkownika, a jednocześnie przygotowane pod widoczność w wyszukiwarkach. Skupiamy się na funkcjonalności, estetyce i przejrzystej komunikacji oferty.",
+      icon: (
+        <svg
+          className="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          viewBox="0 0 24 24"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="M8 9l-3 3 3 3M16 9l3 3-3 3" />
+        </svg>
+      ),
     },
     {
-      title: "Budowa komputerów",
-      desc: "Składamy komputery od podstaw, dobierając komponenty precyzyjnie pod konkretne zastosowanie – od pracy biurowej po zaawansowane zestawy gamingowe. Każda konfiguracja jest zoptymalizowana pod kątem wydajności, kompatybilności i budżetu, bez przypadkowych elementów i zbędnych kosztów.",
+      title: isEN ? "Custom PC builds" : "Budowa komputerów",
+      desc: isEN
+        ? "We build computers from the ground up, selecting components precisely for the intended purpose — from office workstations to advanced gaming systems. Every configuration is optimized for performance, compatibility, and budget, without random parts or unnecessary cost. The end result is a reliable machine matched to the real expectations of the user."
+        : "Składamy komputery od podstaw, dobierając komponenty precyzyjnie pod konkretne zastosowanie – od pracy biurowej po zaawansowane zestawy gamingowe. Każda konfiguracja jest zoptymalizowana pod kątem wydajności, kompatybilności i budżetu, bez przypadkowych elementów i zbędnych kosztów.",
+      icon: (
+        <svg
+          className="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          viewBox="0 0 24 24"
+        >
+          <rect x="6" y="4" width="12" height="16" rx="2" />
+        </svg>
+      ),
     },
   ];
 
@@ -46,11 +110,8 @@ export default function Home() {
     buttonSecondary: isLight
       ? "border border-black/20 hover:bg-black hover:text-white"
       : "border border-white/20 hover:bg-white hover:text-black",
-    footerText: isLight ? "text-gray-500" : "text-gray-500",
-    toggleBg: isLight ? "bg-black text-white" : "bg-white text-black",
+    footerText: "text-gray-500",
   };
-
-  const logoSrc = isLight ? "/logo-black.png" : "/logo.png";
 
   return (
     <main className={`${theme.main} min-h-screen pt-20 transition-colors duration-300`}>
@@ -68,22 +129,63 @@ export default function Home() {
           </span>
         </div>
 
-        <div className="flex items-center gap-4 md:gap-8">
+        <div className="flex items-center gap-4 md:gap-6">
           <nav className={`flex gap-4 md:gap-8 text-sm ${theme.nav}`}>
             <a href="#oferta" className={`transition ${theme.navHover}`}>
-              Oferta
+              {t.navOffer}
             </a>
             <a href="#kontakt" className={`transition ${theme.navHover}`}>
-              Kontakt
+              {t.navContact}
             </a>
           </nav>
 
           <button
+  onClick={() => setIsEN((prev) => !prev)}
+  className="w-9 h-9 rounded-full overflow-hidden border border-white/20 hover:scale-110 transition"
+  aria-label={isEN ? "Przełącz na polski" : "Switch to English"}
+  title={isEN ? "Przełącz na polski" : "Switch to English"}
+  type="button"
+>
+  {isEN ? (
+    // 🇵🇱 POLSKA (POZIOMO)
+    <div className="w-full h-full flex flex-col">
+      <div className="w-full h-1/2 bg-white" />
+      <div className="w-full h-1/2 bg-red-600" />
+    </div>
+  ) : (
+    // 🇬🇧 UK (Union Jack)
+    <div className="w-full h-full relative">
+  {/* tło */}
+  <div className="absolute inset-0 bg-blue-700" />
+
+  {/* białe przekątne */}
+  <div className="absolute w-[140%] h-[20%] bg-white rotate-45 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+  <div className="absolute w-[140%] h-[20%] bg-white -rotate-45 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+
+  {/* czerwone przekątne */}
+  <div className="absolute w-[140%] h-[10%] bg-red-600 rotate-45 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+  <div className="absolute w-[140%] h-[10%] bg-red-600 -rotate-45 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+
+  {/* biały krzyż */}
+  <div className="absolute top-1/2 left-0 w-full h-[22%] bg-white -translate-y-1/2" />
+  <div className="absolute top-0 left-1/2 h-full w-[22%] bg-white -translate-x-1/2" />
+
+  {/* czerwony krzyż */}
+  <div className="absolute top-1/2 left-0 w-full h-[12%] bg-red-600 -translate-y-1/2" />
+  <div className="absolute top-0 left-1/2 h-full w-[12%] bg-red-600 -translate-x-1/2" />
+</div>
+  )}
+</button>
+
+          <button
             onClick={() => setIsLight(!isLight)}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition ${theme.toggleBg}`}
-            aria-label="Przełącz motyw"
+            aria-label="Toggle theme"
+            className="w-6 h-6 rounded-full overflow-hidden border border-white/20 hover:scale-110 transition"
           >
-            {isLight ? "Dark" : "Light"}
+            <div className="w-full h-full flex">
+              <div className="w-1/2 h-full bg-black" />
+              <div className="w-1/2 h-full bg-white" />
+            </div>
           </button>
         </div>
       </header>
@@ -105,11 +207,11 @@ export default function Home() {
             />
 
             <h1 className="text-5xl md:text-7xl font-semibold tracking-tight mb-6">
-              STREFA WSPARCIA TECH-IT
+              {t.heroTitle}
             </h1>
 
             <p className={`text-lg md:text-xl mb-10 leading-relaxed ${theme.heroText}`}>
-              SERWIS ELEKTRONIKI • BUDOWA KOMPUTERÓW • STRONY INTERNETOWE • SIECI
+              {t.heroDesc}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -117,14 +219,14 @@ export default function Home() {
                 href="#oferta"
                 className={`px-8 py-3 rounded-full font-medium transition ${theme.buttonPrimary}`}
               >
-                Zobacz ofertę
+                {t.heroOffer}
               </a>
 
               <a
                 href="tel:+48690690776"
                 className={`px-8 py-3 rounded-full transition ${theme.buttonSecondary}`}
               >
-                Zadzwoń
+                {t.heroCall}
               </a>
             </div>
           </div>
@@ -134,7 +236,7 @@ export default function Home() {
       <section id="oferta" className="px-6 py-24 max-w-6xl mx-auto">
         <FadeIn>
           <h2 className="text-3xl md:text-4xl font-semibold mb-16 text-center">
-            Co robimy
+            {t.servicesTitle}
           </h2>
         </FadeIn>
 
@@ -153,42 +255,12 @@ export default function Home() {
                       <div
                         className={`w-10 h-10 rounded-full flex items-center justify-center transition group-hover:scale-110 ${theme.iconWrap}`}
                       >
-                        {i === 0 && (
-                          <svg
-                            className="w-6 h-6"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="1.5"
-                            viewBox="0 0 24 24"
-                          >
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 7h14v10H5z" />
-                          </svg>
-                        )}
-                        {i === 1 && (
-                          <svg
-                            className="w-6 h-6"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="1.5"
-                            viewBox="0 0 24 24"
-                          >
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M8 9l-3 3 3 3M16 9l3 3-3 3" />
-                          </svg>
-                        )}
-                        {i === 2 && (
-                          <svg
-                            className="w-6 h-6"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="1.5"
-                            viewBox="0 0 24 24"
-                          >
-                            <rect x="6" y="4" width="12" height="16" rx="2" />
-                          </svg>
-                        )}
+                        {item.icon}
                       </div>
 
-                      <h3 className="text-lg font-medium">{item.title}</h3>
+                      <h3 className="text-lg font-medium">
+                        {item.title}
+                      </h3>
                     </div>
 
                     <div className={`transition transform ${isOpen ? "rotate-180" : ""}`}>
@@ -205,7 +277,9 @@ export default function Home() {
                   </div>
 
                   <div
-                    style={{ maxHeight: isOpen ? "1000px" : "0px" }}
+                    style={{
+                      maxHeight: isOpen ? "1000px" : "0px",
+                    }}
                     className="overflow-hidden transition-all duration-500 ease-in-out"
                   >
                     <div className="pt-4">
@@ -224,7 +298,9 @@ export default function Home() {
       <section id="kontakt" className={`px-6 py-24 border-t ${theme.border}`}>
         <FadeIn>
           <div className="max-w-5xl mx-auto text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-semibold">Kontakt</h2>
+            <h2 className="text-3xl md:text-4xl font-semibold">
+              {t.contactTitle}
+            </h2>
           </div>
         </FadeIn>
 
@@ -289,7 +365,9 @@ export default function Home() {
                 </div>
 
                 <div className={`text-sm mt-4 ${theme.muted}`}>
-                  <p className="font-medium mb-2 text-current">ASPERION Łukasz Korgul</p>
+                  <p className="font-medium mb-2 text-current">
+                    ASPERION Łukasz Korgul
+                  </p>
                   <p>ul. Karola Darwina 62GE/2</p>
                   <p>31-764 Kraków</p>
                   <p className="mt-2">NIP: 5562441108</p>
@@ -314,7 +392,7 @@ export default function Home() {
                     rel="noopener noreferrer"
                     className={`inline-block px-6 py-2 rounded-full text-sm transition ${theme.buttonSecondary}`}
                   >
-                    Otwórz w Google Maps
+                    {t.openMaps}
                   </a>
                 </div>
               </div>
@@ -326,85 +404,153 @@ export default function Home() {
       <section className={`px-6 py-16 border-t ${theme.border}`}>
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           <p className={`text-sm text-center md:text-left ${theme.footerText}`}>
-            © {new Date().getFullYear()} MRGEEK. All rights reserved ®
+            {t.rights}
           </p>
 
           <button
             onClick={() => setPrivacyOpen(!privacyOpen)}
             className={`text-sm transition flex items-center gap-2 ${theme.nav} ${theme.navHover}`}
           >
-            Polityka prywatności
-            <span className={`transition ${privacyOpen ? "rotate-180" : ""}`}>▼</span>
+            {t.privacyTitle}
+            <span className={`transition ${privacyOpen ? "rotate-180" : ""}`}>
+              ▼
+            </span>
           </button>
         </div>
 
         <div
           className={`max-w-6xl mx-auto overflow-hidden transition-all duration-500 ${
-            privacyOpen ? "max-h-[2200px] mt-10 opacity-100" : "max-h-0 opacity-0"
+            privacyOpen ? "max-h-[2400px] mt-10 opacity-100" : "max-h-0 opacity-0"
           }`}
         >
           <div
             className={`rounded-2xl p-8 text-sm leading-relaxed space-y-6 border ${theme.card}`}
           >
-            <p className="font-medium">Polityka prywatności</p>
+            {isEN ? (
+              <>
+                <p className="font-medium">Privacy Policy</p>
 
-            <p>
-              Administratorem danych osobowych jest ASPERION Łukasz Korgul, z siedzibą w Krakowie.
-              Kontakt w sprawach dotyczących danych osobowych: kontakt@asperion.pl.
-            </p>
+                <p>
+                  The controller of personal data is ASPERION Łukasz Korgul, based in Kraków.
+                  Contact regarding personal data matters: kontakt@asperion.pl.
+                </p>
 
-            <p>
-              Dane osobowe przekazywane za pośrednictwem strony internetowej, poczty elektronicznej
-              lub kontaktu telefonicznego są przetwarzane wyłącznie w celu obsługi zapytania,
-              udzielenia odpowiedzi, przedstawienia oferty oraz realizacji usług.
-            </p>
+                <p>
+                  Personal data provided via the website, e-mail, or phone contact is processed
+                  solely for the purpose of handling inquiries, responding to messages, presenting
+                  offers, and delivering services.
+                </p>
 
-            <p>
-              Podstawą przetwarzania danych jest zgoda użytkownika, działania podejmowane na żądanie
-              osoby, której dane dotyczą, przed zawarciem umowy, a także prawnie uzasadniony interes
-              administratora polegający na prowadzeniu kontaktu z klientami i zabezpieczeniu roszczeń.
-            </p>
+                <p>
+                  The legal basis for processing is the user’s consent, actions taken at the
+                  request of the data subject prior to entering into a contract, and the legitimate
+                  interest of the controller consisting of communication with clients and protection
+                  against potential claims.
+                </p>
 
-            <p>
-              Podanie danych jest dobrowolne, jednak może być niezbędne do uzyskania odpowiedzi
-              lub realizacji usługi.
-            </p>
+                <p>
+                  Providing data is voluntary, but it may be necessary in order to receive a reply
+                  or use our services.
+                </p>
 
-            <p>
-              Dane nie są sprzedawane ani udostępniane podmiotom trzecim, z wyjątkiem podmiotów
-              wspierających działanie strony i realizację usług, takich jak dostawcy hostingu,
-              poczty elektronicznej lub narzędzi technicznych, wyłącznie w zakresie niezbędnym
-              do prawidłowego świadczenia usług.
-            </p>
+                <p>
+                  Data is not sold or shared with third parties, except for entities supporting the
+                  operation of the website and the provision of services, such as hosting, e-mail,
+                  or technical service providers, only to the extent necessary for proper service delivery.
+                </p>
 
-            <p>
-              Dane przechowywane są przez okres niezbędny do realizacji celu kontaktu, wykonania
-              usługi, a także przez czas wynikający z obowiązujących przepisów prawa lub do momentu
-              przedawnienia ewentualnych roszczeń.
-            </p>
+                <p>
+                  Data is stored for the period necessary to fulfill the purpose of contact, provide
+                  the service, and for the period resulting from applicable law or until the expiry
+                  of potential claims.
+                </p>
 
-            <p>
-              Każdej osobie, której dane dotyczą, przysługuje prawo dostępu do danych, ich
-              sprostowania, usunięcia, ograniczenia przetwarzania, przenoszenia danych, wniesienia
-              sprzeciwu oraz cofnięcia zgody w dowolnym momencie, bez wpływu na zgodność z prawem
-              przetwarzania dokonanego przed jej cofnięciem.
-            </p>
+                <p>
+                  Every data subject has the right to access their data, rectify it, erase it,
+                  restrict processing, transfer data, object to processing, and withdraw consent
+                  at any time, without affecting the lawfulness of processing carried out before
+                  the withdrawal.
+                </p>
 
-            <p>
-              W przypadku uznania, że przetwarzanie danych narusza przepisy prawa, użytkownik ma
-              prawo wniesienia skargi do Prezesa Urzędu Ochrony Danych Osobowych.
-            </p>
+                <p>
+                  If you believe that the processing of your personal data violates the law, you
+                  have the right to lodge a complaint with the President of the Personal Data
+                  Protection Office.
+                </p>
 
-            <p>
-              Strona może wykorzystywać pliki cookies niezbędne do jej prawidłowego działania,
-              poprawy bezpieczeństwa oraz podstawowej analizy technicznej. Szczegółowe ustawienia
-              cookies zależą od używanej przeglądarki internetowej.
-            </p>
+                <p>
+                  The website may use cookies necessary for proper operation, improved security,
+                  and basic technical analytics. Detailed cookie settings depend on the browser used.
+                </p>
 
-            <p>
-              Administrator dokłada należytej staranności, aby chronić dane osobowe przed
-              nieuprawnionym dostępem, utratą, zniszczeniem lub nieuprawnioną modyfikacją.
-            </p>
+                <p>
+                  The controller makes every effort to protect personal data against unauthorized
+                  access, loss, destruction, or unauthorized modification.
+                </p>
+              </>
+            ) : (
+              <>
+                <p className="font-medium">Polityka prywatności</p>
+
+                <p>
+                  Administratorem danych osobowych jest ASPERION Łukasz Korgul, z siedzibą w Krakowie.
+                  Kontakt w sprawach dotyczących danych osobowych: kontakt@asperion.pl.
+                </p>
+
+                <p>
+                  Dane osobowe przekazywane za pośrednictwem strony internetowej, poczty elektronicznej
+                  lub kontaktu telefonicznego są przetwarzane wyłącznie w celu obsługi zapytania,
+                  udzielenia odpowiedzi, przedstawienia oferty oraz realizacji usług.
+                </p>
+
+                <p>
+                  Podstawą przetwarzania danych jest zgoda użytkownika, działania podejmowane na żądanie
+                  osoby, której dane dotyczą, przed zawarciem umowy, a także prawnie uzasadniony interes
+                  administratora polegający na prowadzeniu kontaktu z klientami i zabezpieczeniu roszczeń.
+                </p>
+
+                <p>
+                  Podanie danych jest dobrowolne, jednak może być niezbędne do uzyskania odpowiedzi
+                  lub realizacji usługi.
+                </p>
+
+                <p>
+                  Dane nie są sprzedawane ani udostępniane podmiotom trzecim, z wyjątkiem podmiotów
+                  wspierających działanie strony i realizację usług, takich jak dostawcy hostingu,
+                  poczty elektronicznej lub narzędzi technicznych, wyłącznie w zakresie niezbędnym
+                  do prawidłowego świadczenia usług.
+                </p>
+
+                <p>
+                  Dane przechowywane są przez okres niezbędny do realizacji celu kontaktu, wykonania
+                  usługi, a także przez czas wynikający z obowiązujących przepisów prawa lub do momentu
+                  przedawnienia ewentualnych roszczeń.
+                </p>
+
+                <p>
+                  Każdej osobie, której dane dotyczą, przysługuje prawo dostępu do danych, ich
+                  sprostowania, usunięcia, ograniczenia przetwarzania, przenoszenia danych, wniesienia
+                  sprzeciwu oraz cofnięcia zgody w dowolnym momencie, bez wpływu na zgodność z prawem
+                  przetwarzania dokonanego przed jej cofnięciem.
+                </p>
+
+                <p>
+                  W przypadku uznania, że przetwarzanie danych narusza przepisy prawa, użytkownik ma
+                  prawo wniesienia skargi do Prezesa Urzędu Ochrony Danych Osobowych.
+                </p>
+
+                <p>
+                  Strona może wykorzystywać pliki cookies niezbędne do jej prawidłowego działania,
+                  poprawy bezpieczeństwa oraz podstawowej analizy technicznej. Szczegółowe ustawienia
+                  cookies zależą od używanej przeglądarki internetowej.
+                </p>
+
+                <p>
+                  Administrator dokłada należytej staranności, aby chronić dane osobowe przed
+                  nieuprawnionym dostępem, utratą, zniszczeniem lub nieuprawnioną modyfikacją.
+                </p>
+              </>
+            )}
           </div>
         </div>
       </section>
