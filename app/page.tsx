@@ -15,14 +15,14 @@ export default function Home() {
     navOffer: isEN ? "Services" : "Oferta",
     navContact: isEN ? "Contact" : "Kontakt",
 
-    heroTitle: isEN ? "TECH SUPPORT ZONE" : "STREFA WSPARCIA TECH-IT",
+    heroTitle: isEN ? "TECH SUPPORT CRAKOW" : "WSPARCIE TECH-IT KRAKÓW",
     heroDesc: isEN
-      ? "ELECTRONICS REPAIR • CUSTOM PCS • WEBSITES • NETWORKS"
-      : "SERWIS ELEKTRONIKI • BUDOWA KOMPUTERÓW • STRONY INTERNETOWE • SIECI",
-    heroOffer: isEN ? "View services" : "Zobacz ofertę",
+      ? "LAPTOPS REPAIR • PC REPAIR • CUSTOM PCS • WEBSITES • NETWORKS"
+      : "SERWIS LAPTOPÓW • SERWIS PC • BUDOWA KOMPUTERÓW • TWORZENIE STRON INTERNETOWYCH • SIECI",
+    heroOffer: isEN ? "WhatsApp" : "WhatsApp",
     heroCall: isEN ? "Call now" : "Zadzwoń",
 
-    servicesTitle: isEN ? "What we do" : "Co robimy",
+    servicesTitle: isEN ? "What we do" : "Czym się zajmujemy ?",
 
     contactTitle: isEN ? "Contact" : "Kontakt",
     openMaps: isEN ? "Open in Google Maps" : "Otwórz w Google Maps",
@@ -42,7 +42,7 @@ export default function Home() {
 
   const services = [
     {
-      title: isEN ? "Electronics repair" : "Naprawa elektroniki",
+      title: isEN ? "Computer repair" : "Naprawa komputerów",
       desc: isEN
         ? "Comprehensive diagnostics and repair of desktop computers, laptops, and Apple devices. We identify the real cause of the issue instead of masking its symptoms, helping you avoid unnecessary costs. We handle both minor repairs and more advanced hardware service, with a strong focus on stability, safety, and long-term reliability after the work is completed."
         : "Kompleksowa diagnostyka i naprawa komputerów stacjonarnych, laptopów oraz urządzeń Apple. Identyfikujemy rzeczywistą przyczynę problemu zamiast maskować jego objawy, co pozwala uniknąć niepotrzebnych kosztów. Realizujemy zarówno drobne naprawy, jak i bardziej zaawansowane serwisy sprzętowe, dbając o stabilność i bezpieczeństwo urządzenia po wykonanej usłudze.",
@@ -76,7 +76,7 @@ export default function Home() {
       ),
     },
     {
-      title: isEN ? "Custom PC builds" : "Budowa komputerów",
+      title: isEN ? "Custom PC builds" : "Budowa komputerów PC na zamówienie",
       desc: isEN
         ? "We build computers from the ground up, selecting components precisely for the intended purpose — from office workstations to advanced gaming systems. Every configuration is optimized for performance, compatibility, and budget, without random parts or unnecessary cost. The end result is a reliable machine matched to the real expectations of the user."
         : "Składamy komputery od podstaw, dobierając komponenty precyzyjnie pod konkretne zastosowanie – od pracy biurowej po zaawansowane zestawy gamingowe. Każda konfiguracja jest zoptymalizowana pod kątem wydajności, kompatybilności i budżetu, bez przypadkowych elementów i zbędnych kosztów.",
@@ -148,55 +148,41 @@ export default function Home() {
 
       {/* FIXED TOGGLES */}
       <div className="fixed right-0 top-24 z-50 flex flex-col items-end gap-3">
+        {/* LANGUAGE */}
         <button
           onClick={() => setIsEN((prev) => !prev)}
-          aria-label={isEN ? "Przełącz na polski" : "Switch to English"}
-          title={isEN ? "Przełącz na polski" : "Switch to English"}
-          type="button"
-          className="group flex items-center gap-3 bg-orange-600 text-white pl-4 pr-3 py-3 rounded-l-xl shadow-lg hover:bg-orange-700 transition"
+          className="group flex items-center justify-center bg-orange-500 p-2 rounded-l-xl shadow-lg hover:bg-orange-600 transition"
         >
-          <span className="text-sm font-semibold tracking-wide">
-            {t.languageLabel}
-          </span>
-
-          <div className="w-8 h-8 rounded-full overflow-hidden border border-white/30 shrink-0">
+          <div className="w-7 h-7 rounded-full overflow-hidden border border-white/30">
             {isEN ? (
               <div className="w-full h-full flex flex-col">
                 <div className="w-full h-1/2 bg-white" />
-                <div className="w-full h-1/2 bg-orange-600" />
+                <div className="w-full h-1/2 bg-red-600" />
               </div>
             ) : (
               <div className="w-full h-full relative">
                 <div className="absolute inset-0 bg-blue-700" />
                 <div className="absolute w-[140%] h-[20%] bg-white rotate-45 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
                 <div className="absolute w-[140%] h-[20%] bg-white -rotate-45 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
-                <div className="absolute w-[140%] h-[10%] bg-orange-600 rotate-45 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
-                <div className="absolute w-[140%] h-[10%] bg-orange-600 -rotate-45 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+                <div className="absolute w-[140%] h-[10%] bg-red-600 rotate-45 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+                <div className="absolute w-[140%] h-[10%] bg-red-600 -rotate-45 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
                 <div className="absolute top-1/2 left-0 w-full h-[22%] bg-white -translate-y-1/2" />
                 <div className="absolute top-0 left-1/2 h-full w-[22%] bg-white -translate-x-1/2" />
-                <div className="absolute top-1/2 left-0 w-full h-[12%] bg-orange-600 -translate-y-1/2" />
-                <div className="absolute top-0 left-1/2 h-full w-[12%] bg-orange-600 -translate-x-1/2" />
+                <div className="absolute top-1/2 left-0 w-full h-[12%] bg-red-600 -translate-y-1/2" />
+                <div className="absolute top-0 left-1/2 h-full w-[12%] bg-red-600 -translate-x-1/2" />
               </div>
             )}
           </div>
         </button>
 
+        {/* THEME */}
         <button
           onClick={() => setIsLight((prev) => !prev)}
-          aria-label="Toggle theme"
-          title={isLight ? "Tryb ciemny" : "Tryb jasny"}
-          type="button"
-          className="group flex items-center gap-3 bg-orange-600 text-white pl-4 pr-3 py-3 rounded-l-xl shadow-lg hover:bg-orange-700 transition"
+          className="group flex items-center justify-center bg-orange-500 p-2 rounded-l-xl shadow-lg hover:bg-orange-600 transition"
         >
-          <span className="text-sm font-semibold tracking-wide">
-            {t.themeLabel}
-          </span>
-
-          <div className="w-8 h-8 rounded-full overflow-hidden border border-white/30 shrink-0">
-            <div className="w-full h-full flex">
-              <div className="w-1/2 h-full bg-black" />
-              <div className="w-1/2 h-full bg-white" />
-            </div>
+          <div className="w-7 h-7 rounded-full overflow-hidden border border-white/30 flex">
+            <div className="w-1/2 h-full bg-black" />
+            <div className="w-1/2 h-full bg-white" />
           </div>
         </button>
       </div>
@@ -227,9 +213,19 @@ export default function Home() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="#oferta"
-                className={`px-8 py-3 rounded-full font-medium transition ${theme.buttonPrimary}`}
+                href="https://wa.me/48690690776"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-3 rounded-full font-medium flex items-center gap-3 justify-center bg-[#25D366] text-white hover:scale-105 transition"
               >
+                <svg
+                  className="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path d="M20.52 3.48A11.86 11.86 0 0012.04 0C5.52 0 .25 5.27.25 11.79c0 2.08.54 4.12 1.57 5.92L0 24l6.49-1.7a11.76 11.76 0 005.55 1.41h.01c6.52 0 11.79-5.27 11.79-11.79 0-3.15-1.23-6.12-3.32-8.44zM12.05 21.4h-.01a9.6 9.6 0 01-4.88-1.33l-.35-.21-3.85 1.01 1.03-3.75-.23-.38a9.6 9.6 0 01-1.47-5.11c0-5.32 4.33-9.65 9.65-9.65 2.58 0 5 1.01 6.83 2.84a9.58 9.58 0 012.82 6.81c0 5.32-4.33 9.65-9.64 9.65zm5.29-7.2c-.29-.15-1.7-.84-1.97-.94-.26-.1-.45-.15-.64.15-.19.29-.74.94-.91 1.13-.17.19-.34.22-.63.07-.29-.15-1.23-.45-2.35-1.44-.87-.77-1.46-1.72-1.63-2.01-.17-.29-.02-.45.13-.6.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.15-.64-1.54-.88-2.11-.23-.55-.47-.48-.64-.49h-.55c-.19 0-.51.07-.77.36-.26.29-1 1-.99 2.43 0 1.43 1.02 2.81 1.16 3 .14.19 2 3.05 4.85 4.27.68.29 1.21.46 1.63.59.68.22 1.3.19 1.79.12.55-.08 1.7-.7 1.94-1.37.24-.67.24-1.24.17-1.37-.07-.12-.26-.19-.55-.34z" />
+                </svg>
                 {t.heroOffer}
               </a>
 
@@ -368,21 +364,35 @@ export default function Home() {
                   </div>
 
                   <a
-                    href="mailto:kontakt@asperion.pl"
+                    href="mailto:kontakt@mrgeek.pl"
                     className="text-lg font-medium hover:opacity-70 transition"
                   >
-                    kontakt@asperion.pl
+                    kontakt@mrgeek.pl
                   </a>
                 </div>
 
                 <div className={`text-sm mt-4 ${theme.muted}`}>
+                  {isEN ? "Service location:" : "Serwis stacjonarny:"}
+                  <p className="font-medium mb-2 text-current">
+                    MRGEEK
+                  </p>
+                  <p>ul. Dobrego Pasterza 100</p>
+                  <p>31-416 Kraków</p>
+                  <p>tel: +48 690 690 776</p>
+                  <p>email: kontakt@mrgeek.pl</p>
+                </div>
+
+                <div className={`text-sm mt-4 ${theme.muted}`}>
+                  {isEN ? "Brand owner:" : "Właścicielem marki jest:"}
                   <p className="font-medium mb-2 text-current">
                     ASPERION Łukasz Korgul
                   </p>
                   <p>ul. Karola Darwina 62GE/2</p>
                   <p>31-764 Kraków</p>
                   <p className="mt-2">NIP: 5562441108</p>
-                  <p>REGON: —</p>
+                  <p>REGON: 093214846</p>
+                  <p>tel: +48 690 690 776</p>
+                  <p>email: kontakt@asperion.pl</p>
                 </div>
               </div>
 
