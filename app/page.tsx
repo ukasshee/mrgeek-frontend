@@ -28,9 +28,16 @@ export default function Home() {
     openMaps: isEN ? "Open in Google Maps" : "Otwórz w Google Maps",
 
     privacyTitle: isEN ? "Privacy Policy" : "Polityka prywatności",
-    rights: isEN
-      ? `© ${new Date().getFullYear()} MRGEEK. All rights reserved ®`
-      : `© ${new Date().getFullYear()} MRGEEK. All rights reserved ®`,
+    rights: `© ${new Date().getFullYear()} MRGEEK. All rights reserved ®`,
+
+    languageLabel: isEN ? "" : "",
+    themeLabel: isLight
+      ? isEN
+        ? ""
+        : ""
+      : isEN
+        ? ""
+        : "",
   };
 
   const services = [
@@ -129,66 +136,70 @@ export default function Home() {
           </span>
         </div>
 
-        <div className="flex items-center gap-4 md:gap-6">
-          <nav className={`flex gap-4 md:gap-8 text-sm ${theme.nav}`}>
-            <a href="#oferta" className={`transition ${theme.navHover}`}>
-              {t.navOffer}
-            </a>
-            <a href="#kontakt" className={`transition ${theme.navHover}`}>
-              {t.navContact}
-            </a>
-          </nav>
+        <nav className={`flex gap-4 md:gap-8 text-sm ${theme.nav}`}>
+          <a href="#oferta" className={`transition ${theme.navHover}`}>
+            {t.navOffer}
+          </a>
+          <a href="#kontakt" className={`transition ${theme.navHover}`}>
+            {t.navContact}
+          </a>
+        </nav>
+      </header>
 
-          <button
-  onClick={() => setIsEN((prev) => !prev)}
-  className="w-9 h-9 rounded-full overflow-hidden border border-white/20 hover:scale-110 transition"
-  aria-label={isEN ? "Przełącz na polski" : "Switch to English"}
-  title={isEN ? "Przełącz na polski" : "Switch to English"}
-  type="button"
->
-  {isEN ? (
-    // 🇵🇱 POLSKA (POZIOMO)
-    <div className="w-full h-full flex flex-col">
-      <div className="w-full h-1/2 bg-white" />
-      <div className="w-full h-1/2 bg-red-600" />
-    </div>
-  ) : (
-    // 🇬🇧 UK (Union Jack)
-    <div className="w-full h-full relative">
-  {/* tło */}
-  <div className="absolute inset-0 bg-blue-700" />
+      {/* FIXED TOGGLES */}
+      <div className="fixed right-0 top-24 z-50 flex flex-col items-end gap-3">
+        <button
+          onClick={() => setIsEN((prev) => !prev)}
+          aria-label={isEN ? "Przełącz na polski" : "Switch to English"}
+          title={isEN ? "Przełącz na polski" : "Switch to English"}
+          type="button"
+          className="group flex items-center gap-3 bg-orange-600 text-white pl-4 pr-3 py-3 rounded-l-xl shadow-lg hover:bg-orange-700 transition"
+        >
+          <span className="text-sm font-semibold tracking-wide">
+            {t.languageLabel}
+          </span>
 
-  {/* białe przekątne */}
-  <div className="absolute w-[140%] h-[20%] bg-white rotate-45 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
-  <div className="absolute w-[140%] h-[20%] bg-white -rotate-45 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+          <div className="w-8 h-8 rounded-full overflow-hidden border border-white/30 shrink-0">
+            {isEN ? (
+              <div className="w-full h-full flex flex-col">
+                <div className="w-full h-1/2 bg-white" />
+                <div className="w-full h-1/2 bg-orange-600" />
+              </div>
+            ) : (
+              <div className="w-full h-full relative">
+                <div className="absolute inset-0 bg-blue-700" />
+                <div className="absolute w-[140%] h-[20%] bg-white rotate-45 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+                <div className="absolute w-[140%] h-[20%] bg-white -rotate-45 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+                <div className="absolute w-[140%] h-[10%] bg-orange-600 rotate-45 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+                <div className="absolute w-[140%] h-[10%] bg-orange-600 -rotate-45 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+                <div className="absolute top-1/2 left-0 w-full h-[22%] bg-white -translate-y-1/2" />
+                <div className="absolute top-0 left-1/2 h-full w-[22%] bg-white -translate-x-1/2" />
+                <div className="absolute top-1/2 left-0 w-full h-[12%] bg-orange-600 -translate-y-1/2" />
+                <div className="absolute top-0 left-1/2 h-full w-[12%] bg-orange-600 -translate-x-1/2" />
+              </div>
+            )}
+          </div>
+        </button>
 
-  {/* czerwone przekątne */}
-  <div className="absolute w-[140%] h-[10%] bg-red-600 rotate-45 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
-  <div className="absolute w-[140%] h-[10%] bg-red-600 -rotate-45 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+        <button
+          onClick={() => setIsLight((prev) => !prev)}
+          aria-label="Toggle theme"
+          title={isLight ? "Tryb ciemny" : "Tryb jasny"}
+          type="button"
+          className="group flex items-center gap-3 bg-orange-600 text-white pl-4 pr-3 py-3 rounded-l-xl shadow-lg hover:bg-orange-700 transition"
+        >
+          <span className="text-sm font-semibold tracking-wide">
+            {t.themeLabel}
+          </span>
 
-  {/* biały krzyż */}
-  <div className="absolute top-1/2 left-0 w-full h-[22%] bg-white -translate-y-1/2" />
-  <div className="absolute top-0 left-1/2 h-full w-[22%] bg-white -translate-x-1/2" />
-
-  {/* czerwony krzyż */}
-  <div className="absolute top-1/2 left-0 w-full h-[12%] bg-red-600 -translate-y-1/2" />
-  <div className="absolute top-0 left-1/2 h-full w-[12%] bg-red-600 -translate-x-1/2" />
-</div>
-  )}
-</button>
-
-          <button
-            onClick={() => setIsLight(!isLight)}
-            aria-label="Toggle theme"
-            className="w-6 h-6 rounded-full overflow-hidden border border-white/20 hover:scale-110 transition"
-          >
+          <div className="w-8 h-8 rounded-full overflow-hidden border border-white/30 shrink-0">
             <div className="w-full h-full flex">
               <div className="w-1/2 h-full bg-black" />
               <div className="w-1/2 h-full bg-white" />
             </div>
-          </button>
-        </div>
-      </header>
+          </div>
+        </button>
+      </div>
 
       <section
         id="top"
