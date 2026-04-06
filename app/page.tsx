@@ -96,8 +96,8 @@ export default function Home() {
   const theme = {
     main: isLight ? "bg-white text-black" : "bg-[#050505] text-white",
     header: isLight
-      ? "bg-white/80 border-black/10"
-      : "bg-black/60 border-white/10",
+      ? "bg-white/90 border-black/10 shadow-[0_8px_30px_rgba(0,0,0,0.06)]"
+      : "bg-white/10 border-white/15 shadow-[0_8px_30px_rgba(0,0,0,0.25)]",
     nav: isLight ? "text-gray-600" : "text-gray-300",
     navHover: isLight ? "hover:text-black" : "hover:text-white",
     heroBg: isLight
@@ -105,9 +105,9 @@ export default function Home() {
       : "bg-gradient-to-b from-[#111111] via-[#0a0a0a] to-[#050505]",
     heroText: isLight ? "text-gray-600" : "text-gray-400",
     card: isLight
-      ? "bg-black/[0.03] border-black/10 hover:bg-black/[0.05] hover:border-black/20"
-      : "bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/20",
-    iconWrap: isLight ? "bg-black/10" : "bg-white/10",
+      ? "bg-white/55 border-black/10 backdrop-blur-xl hover:bg-white/70 hover:border-black/20 shadow-[0_8px_30px_rgba(0,0,0,0.06)]"
+      : "bg-white/8 border-white/15 backdrop-blur-xl hover:bg-white/12 hover:border-white/25 shadow-[0_8px_30px_rgba(0,0,0,0.22)]",
+    iconWrap: isLight ? "bg-black/8" : "bg-white/10",
     muted: isLight ? "text-gray-600" : "text-gray-400",
     border: isLight ? "border-black/10" : "border-white/10",
     buttonPrimary: isLight
@@ -120,9 +120,6 @@ export default function Home() {
     mobileBar: isLight
       ? "bg-white/95 border-black/10"
       : "bg-[#0b0b0b]/95 border-white/10",
-    previewFade: isLight
-      ? "from-white to-transparent"
-      : "from-[#050505] to-transparent",
   };
 
   const structuredData = {
@@ -186,7 +183,6 @@ export default function Home() {
         </nav>
       </header>
 
-      {/* FIXED TOGGLES */}
       <div className="fixed right-0 top-24 z-50 flex flex-col items-end gap-3">
         <button
           onClick={() => setIsEN((prev) => !prev)}
@@ -271,6 +267,11 @@ export default function Home() {
         <div className="grid md:grid-cols-3 gap-8">
           {services.map((item, i) => {
             const isOpen = openIndex === i;
+            const previewLength = isEN ? 110 : 120;
+            const preview =
+              item.desc.length > previewLength
+                ? `${item.desc.slice(0, previewLength).trim()}...`
+                : item.desc;
 
             return (
               <FadeIn key={i}>
@@ -278,10 +279,10 @@ export default function Home() {
                   onClick={() => setOpenIndex(isOpen ? null : i)}
                   className={`group p-8 rounded-2xl border transition cursor-pointer relative overflow-hidden ${theme.card}`}
                 >
-                  <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center justify-between mb-5">
                     <div className="flex items-center gap-4">
                       <div
-                        className={`w-11 h-11 rounded-xl flex items-center justify-center transition ${theme.iconWrap}`}
+                        className={`w-11 h-11 rounded-xl flex items-center justify-center transition duration-300 group-hover:scale-105 ${theme.iconWrap}`}
                       >
                         {item.icon}
                       </div>
@@ -291,7 +292,9 @@ export default function Home() {
                       </h3>
                     </div>
 
-                    <div className={`transition transform ${isOpen ? "rotate-180" : ""}`}>
+                    <div
+                      className={`transition transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+                    >
                       <svg
                         className={`w-5 h-5 ${theme.muted}`}
                         fill="none"
@@ -304,19 +307,17 @@ export default function Home() {
                     </div>
                   </div>
 
-                  <div
-                    className={`relative transition-all duration-500 ease-in-out ${
-                      isOpen ? "max-h-[500px]" : "max-h-[72px]"
-                    } overflow-hidden`}
-                  >
-                    <p className={`text-sm leading-relaxed ${theme.muted}`}>
-                      {item.desc}
-                    </p>
-
-                    {!isOpen && (
-                      <div
-                        className={`absolute bottom-0 left-0 w-full h-10 bg-gradient-to-t ${theme.previewFade} pointer-events-none`}
-                      />
+                  <div className="min-h-[72px]">
+                    {!isOpen ? (
+                      <p className={`text-sm leading-relaxed ${theme.muted}`}>
+                        {preview}
+                      </p>
+                    ) : (
+                      <div className="pt-1">
+                        <p className={`text-sm leading-relaxed ${theme.muted}`}>
+                          {item.desc}
+                        </p>
+                      </div>
                     )}
                   </div>
                 </div>
@@ -427,7 +428,6 @@ export default function Home() {
                   <p>email: kontakt@asperion.pl</p>
                 </div>
 
-                {/* desktop only */}
                 <div className="hidden md:flex flex-col sm:flex-row gap-4 pt-2">
                   <a
                     href="https://wa.me/48690690776"
@@ -635,7 +635,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* MOBILE STICKY CTA */}
       <div
         className={`md:hidden fixed bottom-0 left-0 w-full z-50 border-t backdrop-blur-md ${theme.mobileBar}`}
       >
