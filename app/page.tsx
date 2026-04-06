@@ -16,14 +16,17 @@ export default function Home() {
     navContact: isEN ? "Contact" : "Kontakt",
 
     heroTitle: isEN
-      ? "TECH SUPPORT CRAKOW"
-      : "WSPARCIE TECH-IT KRAKÓW",
+      ? "Laptop & PC Repair Krakow"
+      : "Serwis laptopów i komputerów Kraków",
     heroDesc: isEN
-      ? "LAPTOPS REPAIR • PC REPAIR • CUSTOM PCS • WEBSITES • NETWORKS"
-      : "SERWIS LAPTOPÓW • SERWIS PC • BUDOWA KOMPUTERÓW • TWORZENIE STRON INTERNETOWYCH • SIECI",
+      ? "Laptop repair, PC repair, custom PCs, websites and network support in Krakow."
+      : "Naprawa laptopów, serwis komputerów PC, budowa komputerów na zamówienie, strony internetowe i wsparcie sieciowe w Krakowie.",
     heroCall: isEN ? "Call now" : "Zadzwoń",
 
     servicesTitle: isEN ? "What we do" : "Czym się zajmujemy ?",
+    servicesIntro: isEN
+      ? "Click any service to expand more details."
+      : "Kliknij wybraną usługę, aby rozwinąć szczegóły.",
 
     contactTitle: isEN ? "Contact" : "Kontakt",
     openMaps: isEN ? "Open in Google Maps" : "Otwórz w Google Maps",
@@ -107,6 +110,9 @@ export default function Home() {
     iconWrap: isLight ? "bg-black/10" : "bg-white/10",
     muted: isLight ? "text-gray-600" : "text-gray-400",
     border: isLight ? "border-black/10" : "border-white/10",
+    buttonPrimary: isLight
+      ? "bg-black text-white hover:scale-105"
+      : "bg-white text-black hover:scale-105",
     buttonSecondary: isLight
       ? "border border-black/20 hover:bg-black hover:text-white"
       : "border border-white/20 hover:bg-white hover:text-black",
@@ -119,17 +125,50 @@ export default function Home() {
       : "from-[#050505] to-transparent",
   };
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "ComputerRepair",
+    name: "MRGEEK",
+    image: "https://mrgeek.pl/og-image.jpg",
+    url: "https://mrgeek.pl",
+    telephone: "+48 690 690 776",
+    email: "kontakt@mrgeek.pl",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "ul. Dobrego Pasterza 100",
+      addressLocality: "Kraków",
+      postalCode: "31-416",
+      addressCountry: "PL",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: "50.0881984",
+      longitude: "19.9655088",
+    },
+    areaServed: {
+      "@type": "City",
+      name: "Kraków",
+    },
+    sameAs: ["https://maps.app.goo.gl/gbQpkC2T9vomrhKE6"],
+    priceRange: "$$",
+    description:
+      "Serwis laptopów i komputerów PC w Krakowie, budowa komputerów na zamówienie, tworzenie stron internetowych i wsparcie IT.",
+  };
+
   return (
-    <main
-      className={`${theme.main} min-h-screen pt-20 pb-24 md:pb-0 transition-colors duration-300`}
-    >
+    <main className={`${theme.main} min-h-screen pt-20 pb-24 md:pb-0 transition-colors duration-300`}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+
       <header
         className={`fixed top-0 left-0 w-full z-50 px-6 py-4 flex items-center justify-between backdrop-blur-md border-b transition-colors duration-300 ${theme.header}`}
       >
         <a href="#top" className="flex items-center gap-3">
           <img
             src={logoSrc}
-            alt="MRGEEK"
+            alt="MRGEEK Kraków - serwis laptopów i komputerów"
             className="h-8 w-auto object-contain"
           />
           <span className="text-sm md:text-base font-semibold tracking-wide">
@@ -190,7 +229,6 @@ export default function Home() {
         </button>
       </div>
 
-      {/* HERO */}
       <section
         id="top"
         className="relative flex flex-col items-center justify-center text-center h-screen px-6 overflow-hidden"
@@ -203,7 +241,7 @@ export default function Home() {
           <div className="relative z-10 max-w-4xl">
             <img
               src={logoSrc}
-              alt="MRGEEK"
+              alt="MRGEEK Kraków - serwis laptopów i komputerów"
               className="mx-auto mb-8 w-28 md:w-36"
             />
 
@@ -218,12 +256,16 @@ export default function Home() {
         </FadeIn>
       </section>
 
-      {/* SERVICES */}
       <section id="oferta" className="px-6 py-24 max-w-6xl mx-auto">
         <FadeIn>
-          <h2 className="text-3xl md:text-4xl font-semibold mb-16 text-center">
-            {t.servicesTitle}
-          </h2>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-semibold mb-4">
+              {t.servicesTitle}
+            </h2>
+            <p className={`text-sm md:text-base ${theme.muted}`}>
+              {t.servicesIntro}
+            </p>
+          </div>
         </FadeIn>
 
         <div className="grid md:grid-cols-3 gap-8">
@@ -244,7 +286,9 @@ export default function Home() {
                         {item.icon}
                       </div>
 
-                      <h3 className="text-lg font-medium">{item.title}</h3>
+                      <h3 className="text-lg font-medium">
+                        {item.title}
+                      </h3>
                     </div>
 
                     <div className={`transition transform ${isOpen ? "rotate-180" : ""}`}>
@@ -280,9 +324,16 @@ export default function Home() {
             );
           })}
         </div>
+
+        <div className={`mt-14 max-w-4xl mx-auto text-center ${theme.muted}`}>
+          <p className="text-sm md:text-base leading-7">
+            {isEN
+              ? "MRGEEK provides laptop repair, desktop PC service, custom computer builds and website development in Krakow. We help individual clients and small businesses looking for reliable local IT support."
+              : "MRGEEK oferuje serwis laptopów, naprawę komputerów stacjonarnych, budowę komputerów na zamówienie oraz tworzenie stron internetowych w Krakowie. Pomagamy klientom indywidualnym i małym firmom, które szukają sprawdzonego lokalnego wsparcia IT."}
+          </p>
+        </div>
       </section>
 
-      {/* CONTACT */}
       <section id="kontakt" className={`px-6 py-24 border-t ${theme.border}`}>
         <FadeIn>
           <div className="max-w-5xl mx-auto text-center mb-12">
@@ -354,7 +405,9 @@ export default function Home() {
 
                 <div className={`text-sm mt-4 ${theme.muted}`}>
                   {t.stationary}
-                  <p className="font-medium mb-2 text-current">MRGEEK</p>
+                  <p className="font-medium mb-2 text-current">
+                    MRGEEK
+                  </p>
                   <p>ul. Dobrego Pasterza 100</p>
                   <p>31-416 Kraków</p>
                   <p>tel: +48 690 690 776</p>
@@ -363,7 +416,9 @@ export default function Home() {
 
                 <div className={`text-sm mt-4 ${theme.muted}`}>
                   {t.brandOwner}
-                  <p className="font-medium mb-2 text-current">ASPERION Łukasz Korgul</p>
+                  <p className="font-medium mb-2 text-current">
+                    ASPERION Łukasz Korgul
+                  </p>
                   <p>ul. Karola Darwina 62GE/2</p>
                   <p>31-764 Kraków</p>
                   <p className="mt-2">NIP: 5562441108</p>
@@ -372,7 +427,7 @@ export default function Home() {
                   <p>email: kontakt@asperion.pl</p>
                 </div>
 
-                {/* Desktop-only CTA */}
+                {/* desktop only */}
                 <div className="hidden md:flex flex-col sm:flex-row gap-4 pt-2">
                   <a
                     href="https://wa.me/48690690776"
@@ -426,7 +481,6 @@ export default function Home() {
         </FadeIn>
       </section>
 
-      {/* FOOTER */}
       <section className={`px-6 py-16 border-t ${theme.border}`}>
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           <p className={`text-sm text-center md:text-left ${theme.footerText}`}>
@@ -581,7 +635,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* MOBILE STICKY BUTTONS */}
+      {/* MOBILE STICKY CTA */}
       <div
         className={`md:hidden fixed bottom-0 left-0 w-full z-50 border-t backdrop-blur-md ${theme.mobileBar}`}
       >
