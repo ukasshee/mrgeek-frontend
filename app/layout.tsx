@@ -10,16 +10,28 @@ export const metadata: Metadata = {
   description:
     "MrGeek Kraków – serwis laptopów i komputerów PC, budowa komputerów na zamówienie, tworzenie stron internetowych oraz konfiguracja sieci. Szybka pomoc IT w Krakowie.",
   keywords: [
+    "MrGeek Kraków",
     "serwis laptopów Kraków",
     "serwis komputerów Kraków",
     "naprawa laptopów Kraków",
     "naprawa komputerów Kraków",
+    "serwis PC Kraków",
     "budowa komputerów Kraków",
     "komputery na zamówienie Kraków",
     "tworzenie stron internetowych Kraków",
     "wsparcie IT Kraków",
-    "MrGeek Kraków",
+    "naprawa Apple Kraków",
   ],
+  authors: [{ name: "MRGEEK" }],
+  creator: "MRGEEK",
+  publisher: "MRGEEK",
+  alternates: {
+    canonical: "/",
+    languages: {
+      "pl-PL": "/",
+      "en-GB": "/?lang=en",
+    },
+  },
   openGraph: {
     type: "website",
     locale: "pl_PL",
@@ -34,7 +46,7 @@ export const metadata: Metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "MRGEEK Kraków",
+        alt: "MRGEEK Kraków - serwis laptopów i komputerów",
       },
     ],
   },
@@ -48,6 +60,10 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+  },
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
 };
 
