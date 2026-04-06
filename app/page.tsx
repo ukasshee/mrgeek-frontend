@@ -223,31 +223,29 @@ export default function Home() {
       </div>
 
       <section
-        id="top"
-        className="relative flex flex-col items-center justify-center text-center min-h-[100svh] px-6 pt-24 pb-32 md:pb-0 overflow-hidden"
-      >
-        <div
-          className={`absolute inset-0 transition-colors duration-300 ${theme.heroBg}`}
-        />
+  id="top"
+  className="relative flex flex-col items-center justify-center text-center min-h-[100svh] px-6 pt-24 pb-32 md:pb-0 overflow-hidden"
+>
+  <div
+    className={`absolute inset-0 transition-colors duration-300 ${theme.heroBg}`}
+  />
 
-        <FadeIn>
-          <div className="relative z-10 max-w-4xl">
-            <img
-              src={logoSrc}
-              alt="MRGEEK Kraków - serwis laptopów i komputerów"
-              className="mx-auto mb-8 w-24 sm:w-28 md:w-36"
-            />
+  <div className="relative z-10 max-w-4xl">
+    <img
+      src={logoSrc}
+      alt="MRGEEK Kraków - serwis laptopów i komputerów"
+      className="mx-auto mb-8 w-24 sm:w-28 md:w-36"
+    />
 
-            <h1 className="text-3xl sm:text-4xl md:text-7xl font-semibold tracking-tight mb-5 leading-tight">
-              {t.heroTitle}
-            </h1>
+    <h1 className="text-3xl sm:text-4xl md:text-7xl font-semibold tracking-tight mb-5 leading-tight">
+      {t.heroTitle}
+    </h1>
 
-            <p className={`text-base sm:text-lg md:text-xl mb-8 leading-relaxed ${theme.heroText}`}>
-              {t.heroDesc}
-            </p>
-          </div>
-        </FadeIn>
-      </section>
+    <p className={`text-base sm:text-lg md:text-xl mb-8 leading-relaxed ${theme.heroText}`}>
+      {t.heroDesc}
+    </p>
+  </div>
+</section>
 
       <section id="oferta" className="px-6 py-24 max-w-6xl mx-auto">
         <FadeIn>
