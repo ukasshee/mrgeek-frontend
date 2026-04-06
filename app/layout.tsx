@@ -1,4 +1,56 @@
+import type { Metadata } from "next";
 import "./globals.css";
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://mrgeek.pl"),
+  title: {
+    default: "MrGeek Kraków – Serwis laptopów, komputerów i tworzenie stron internetowych",
+    template: "%s | MrGeek Kraków",
+  },
+  description:
+    "MrGeek Kraków – serwis laptopów i komputerów PC, budowa komputerów na zamówienie, tworzenie stron internetowych oraz konfiguracja sieci. Szybka pomoc IT w Krakowie.",
+  keywords: [
+    "serwis laptopów Kraków",
+    "serwis komputerów Kraków",
+    "naprawa laptopów Kraków",
+    "naprawa komputerów Kraków",
+    "budowa komputerów Kraków",
+    "komputery na zamówienie Kraków",
+    "tworzenie stron internetowych Kraków",
+    "wsparcie IT Kraków",
+    "MrGeek Kraków",
+  ],
+  openGraph: {
+    type: "website",
+    locale: "pl_PL",
+    alternateLocale: "en_GB",
+    url: "https://mrgeek.pl",
+    siteName: "MRGEEK",
+    title: "MrGeek Kraków – Serwis laptopów, komputerów i tworzenie stron internetowych",
+    description:
+      "Serwis laptopów i komputerów PC w Krakowie, budowa komputerów na zamówienie, strony internetowe i wsparcie IT.",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "MRGEEK Kraków",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "MrGeek Kraków – Serwis laptopów, komputerów i tworzenie stron internetowych",
+    description:
+      "Serwis laptopów i komputerów PC w Krakowie, budowa komputerów na zamówienie, strony internetowe i wsparcie IT.",
+    images: ["/og-image.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -6,38 +58,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pl">
-      <body className="text-white bg-gradient-to-b from-[#0a0a0a] via-[#111111] to-[#050505]">
-
-        {/* NAVBAR */}
-        <header className="fixed top-0 left-0 w-full z-50">
-          <div className="w-full px-6 md:px-12 lg:px-20 py-4 flex items-center justify-between bg-white/5 backdrop-blur-md border-b border-white/10">
-
-            {/* LOGO */}
-            <div className="text-lg font-semibold tracking-tight">
-              MRGEEK
-            </div>
-
-            {/* MENU */}
-           <nav className="hidden md:flex gap-8 text-sm text-gray-300">
-  <a href="#oferta" className="hover:text-white">Oferta</a>
-  <a href="#realizacje" className="hover:text-white">Realizacje</a>
-  <a href="#onas" className="hover:text-white">O nas</a>
-  <a href="#kontakt" className="hover:text-white">Kontakt</a>
-</nav>
-
-            {/* CTA */}
-            <button className="hidden md:block bg-white text-black px-5 py-2 rounded-full text-sm font-medium hover:opacity-90 transition">
-              Wycena
-            </button>
-          </div>
-        </header>
-
-        {/* CONTENT */}
-        <div className="pt-24">
-          {children}
-        </div>
-
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
