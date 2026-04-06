@@ -101,9 +101,8 @@ export default function Home() {
     nav: isLight ? "text-gray-600" : "text-gray-300",
     navHover: isLight ? "hover:text-black" : "hover:text-white",
     heroBg: isLight
-      ? "bg-gradient-to-b from-[#ffffff] via-[#f7f7f7] to-[#efefef]"
-      : "bg-gradient-to-b from-[#111111] via-[#0a0a0a] to-[#050505]",
-    heroText: isLight ? "text-gray-600" : "text-gray-400",
+  ? "bg-gradient-to-br from-[#ffffff] via-[#f6f6f6] to-[#ececec]"
+  : "bg-gradient-to-br from-[#0b0b0b] via-[#111111] to-[#050505]",
     card: isLight
       ? "bg-white/55 border-black/10 backdrop-blur-xl hover:bg-white/70 hover:border-black/20 shadow-[0_8px_30px_rgba(0,0,0,0.06)]"
       : "bg-white/8 border-white/15 backdrop-blur-xl hover:bg-white/12 hover:border-white/25 shadow-[0_8px_30px_rgba(0,0,0,0.22)]",
@@ -226,9 +225,33 @@ export default function Home() {
   id="top"
   className="relative flex flex-col items-center justify-center text-center min-h-[100svh] px-6 pt-24 pb-32 md:pb-0 overflow-hidden"
 >
+  <div className="absolute inset-0">
   <div
     className={`absolute inset-0 transition-colors duration-300 ${theme.heroBg}`}
   />
+
+  {/* soft glow top left */}
+  <div className="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-orange-500/10 blur-3xl" />
+
+  {/* soft glow bottom right */}
+  <div className="absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-blue-500/10 blur-3xl" />
+
+  {/* subtle center glow */}
+  <div className="absolute left-1/2 top-1/2 h-[28rem] w-[28rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/[0.03] blur-3xl" />
+
+  {/* grid overlay */}
+  <div
+    className="absolute inset-0 opacity-[0.06]"
+    style={{
+      backgroundImage:
+        "linear-gradient(rgba(255,255,255,0.12) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.12) 1px, transparent 1px)",
+      backgroundSize: "40px 40px",
+    }}
+  />
+
+  {/* vignette */}
+  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_35%,rgba(0,0,0,0.35)_100%)]" />
+</div>
 
   <div className="relative z-10 max-w-4xl">
     <img
