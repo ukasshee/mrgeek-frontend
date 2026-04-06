@@ -240,10 +240,64 @@ export default function Home() {
     <h1 className="text-3xl sm:text-4xl md:text-7xl font-semibold tracking-tight mb-5 leading-tight">
       {t.heroTitle}
     </h1>
+    
+    
 
     <p className={`text-base sm:text-lg md:text-xl mb-8 leading-relaxed ${theme.heroText}`}>
       {t.heroDesc}
     </p>
+
+    <div className="flex items-center justify-center gap-5 mb-6 opacity-70 hover:opacity-100 transition">
+  
+  <a
+    href="https://www.linkedin.com/company/112795322"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="transition hover:scale-110"
+    aria-label="LinkedIn"
+  >
+    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.05c.53-1 1.84-2.2 3.8-2.2 4.06 0 4.8 2.67 4.8 6.15V24h-4v-8.1c0-1.93-.03-4.42-2.7-4.42-2.7 0-3.12 2.1-3.12 4.27V24h-4V8z" />
+    </svg>
+  </a>
+
+  <a
+    href="https://share.google/TwWvD4eQ11OMH7RsD"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="transition hover:scale-110"
+    aria-label="Google"
+  >
+    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M21.35 11.1h-9.18v2.92h5.27c-.23 1.3-1.56 3.82-5.27 3.82-3.17 0-5.75-2.63-5.75-5.87s2.58-5.87 5.75-5.87c1.8 0 3 .77 3.69 1.44l2.52-2.44C16.7 3.5 14.65 2.5 12.17 2.5 6.92 2.5 2.5 6.92 2.5 12.17s4.42 9.67 9.67 9.67c5.58 0 9.28-3.92 9.28-9.45 0-.64-.07-1.13-.1-1.29z"/>
+    </svg>
+  </a>
+
+  <a
+    href="https://www.facebook.com/mrgeek.tech"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="transition hover:scale-110"
+    aria-label="Facebook"
+  >
+    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M22 12a10 10 0 10-11.5 9.9v-7h-2.8v-2.9h2.8V9.7c0-2.8 1.7-4.3 4.2-4.3 1.2 0 2.4.2 2.4.2v2.7h-1.4c-1.4 0-1.8.9-1.8 1.7v2.1h3l-.5 2.9h-2.5v7A10 10 0 0022 12z"/>
+    </svg>
+  </a>
+
+  <a
+    href="https://x.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="transition hover:scale-110"
+    aria-label="X"
+  >
+    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M18.244 2H21l-6.54 7.47L22 22h-6.828l-5.35-7.02L3.5 22H1l7.03-8.03L2 2h6.828l4.87 6.41L18.244 2z"/>
+    </svg>
+  </a>
+
+</div>
   </div>
 </section>
 
@@ -258,6 +312,7 @@ export default function Home() {
             </p>
           </div>
         </FadeIn>
+        
 
         <div className="grid md:grid-cols-3 gap-8">
           {services.map((item, i) => {
@@ -320,6 +375,7 @@ export default function Home() {
             );
           })}
         </div>
+        
 
         <div className={`mt-14 max-w-4xl mx-auto text-center ${theme.muted}`}>
           <p className="text-sm md:text-base leading-7">
@@ -328,7 +384,10 @@ export default function Home() {
               : "MRGEEK oferuje serwis laptopów, naprawę komputerów stacjonarnych, budowę komputerów na zamówienie oraz tworzenie stron internetowych w Krakowie. Pomagamy klientom indywidualnym i małym firmom, które szukają sprawdzonego lokalnego wsparcia IT."}
           </p>
         </div>
+        
       </section>
+
+      
 
       <section id="kontakt" className={`px-6 py-24 border-t ${theme.border}`}>
         <FadeIn>
