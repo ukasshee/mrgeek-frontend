@@ -68,9 +68,9 @@ export const metadata: Metadata = {
     { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
   ],
   apple: "/apple-touch-icon.png",
-  manifest: "/site.webmanifest",
+  
 },
-
+manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({
