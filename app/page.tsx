@@ -110,9 +110,6 @@ export default function Home() {
     iconWrap: isLight ? "bg-black/8" : "bg-white/10",
     muted: isLight ? "text-gray-600" : "text-gray-400",
     border: isLight ? "border-black/10" : "border-white/10",
-    buttonPrimary: isLight
-      ? "bg-black text-white hover:scale-105"
-      : "bg-white text-black hover:scale-105",
     buttonSecondary: isLight
       ? "border border-black/20 hover:bg-black hover:text-white"
       : "border border-white/20 hover:bg-white hover:text-black",
@@ -153,27 +150,27 @@ export default function Home() {
   };
 
   return (
-    <main className={`${theme.main} min-h-screen pt-20 pb-24 md:pb-0 transition-colors duration-300`}>
+    <main className={`${theme.main} min-h-screen pt-20 pb-32 md:pb-0 transition-colors duration-300`}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
 
       <header
-        className={`fixed top-0 left-0 w-full z-50 px-6 py-4 flex items-center justify-between backdrop-blur-md border-b transition-colors duration-300 ${theme.header}`}
+        className={`fixed top-0 left-0 w-full z-50 px-4 sm:px-6 py-4 flex items-center justify-between backdrop-blur-md border-b transition-colors duration-300 ${theme.header}`}
       >
-        <a href="#top" className="flex items-center gap-3">
+        <a href="#top" className="flex items-center gap-2 sm:gap-3">
           <img
             src={logoSrc}
             alt="MRGEEK Kraków - serwis laptopów i komputerów"
-            className="h-8 w-auto object-contain"
+            className="h-7 sm:h-8 w-auto object-contain"
           />
           <span className="text-sm md:text-base font-semibold tracking-wide">
             MRGEEK
           </span>
         </a>
 
-        <nav className={`flex gap-4 md:gap-8 text-sm ${theme.nav}`}>
+        <nav className={`flex gap-3 sm:gap-4 md:gap-8 text-sm ${theme.nav}`}>
           <a href="#oferta" className={`transition ${theme.navHover}`}>
             {t.navOffer}
           </a>
@@ -183,14 +180,14 @@ export default function Home() {
         </nav>
       </header>
 
-      <div className="fixed right-0 top-24 z-50 flex flex-col items-end gap-3">
+      <div className="fixed right-0 top-20 sm:top-24 z-50 flex flex-col items-end gap-2 sm:gap-3">
         <button
           onClick={() => setIsEN((prev) => !prev)}
-          className="group flex items-center justify-center bg-orange-500 p-2 rounded-l-xl shadow-lg hover:bg-orange-600 transition"
+          className="group flex items-center justify-center bg-orange-500 p-1.5 sm:p-2 rounded-l-xl shadow-lg hover:bg-orange-600 transition"
           aria-label="Toggle language"
           type="button"
         >
-          <div className="w-7 h-7 rounded-full overflow-hidden border border-white/30">
+          <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full overflow-hidden border border-white/30">
             {isEN ? (
               <div className="w-full h-full flex flex-col">
                 <div className="w-full h-1/2 bg-white" />
@@ -214,11 +211,11 @@ export default function Home() {
 
         <button
           onClick={() => setIsLight((prev) => !prev)}
-          className="group flex items-center justify-center bg-orange-500 p-2 rounded-l-xl shadow-lg hover:bg-orange-600 transition"
+          className="group flex items-center justify-center bg-orange-500 p-1.5 sm:p-2 rounded-l-xl shadow-lg hover:bg-orange-600 transition"
           aria-label="Toggle theme"
           type="button"
         >
-          <div className="w-7 h-7 rounded-full overflow-hidden border border-white/30 flex">
+          <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full overflow-hidden border border-white/30 flex">
             <div className="w-1/2 h-full bg-black" />
             <div className="w-1/2 h-full bg-white" />
           </div>
@@ -227,7 +224,7 @@ export default function Home() {
 
       <section
         id="top"
-        className="relative flex flex-col items-center justify-center text-center h-screen px-6 overflow-hidden"
+        className="relative flex flex-col items-center justify-center text-center min-h-[100svh] px-6 pt-24 pb-32 md:pb-0 overflow-hidden"
       >
         <div
           className={`absolute inset-0 transition-colors duration-300 ${theme.heroBg}`}
@@ -238,14 +235,14 @@ export default function Home() {
             <img
               src={logoSrc}
               alt="MRGEEK Kraków - serwis laptopów i komputerów"
-              className="mx-auto mb-8 w-28 md:w-36"
+              className="mx-auto mb-8 w-24 sm:w-28 md:w-36"
             />
 
-            <h1 className="text-5xl md:text-7xl font-semibold tracking-tight mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-7xl font-semibold tracking-tight mb-5 leading-tight">
               {t.heroTitle}
             </h1>
 
-            <p className={`text-lg md:text-xl mb-10 leading-relaxed ${theme.heroText}`}>
+            <p className={`text-base sm:text-lg md:text-xl mb-8 leading-relaxed ${theme.heroText}`}>
               {t.heroDesc}
             </p>
           </div>
@@ -398,7 +395,7 @@ export default function Home() {
 
                   <a
                     href="mailto:kontakt@mrgeek.pl"
-                    className="text-lg font-medium hover:opacity-70 transition"
+                    className="text-lg font-medium hover:opacity-70 transition break-all"
                   >
                     kontakt@mrgeek.pl
                   </a>
@@ -638,12 +635,12 @@ export default function Home() {
       <div
         className={`md:hidden fixed bottom-0 left-0 w-full z-50 border-t backdrop-blur-md ${theme.mobileBar}`}
       >
-        <div className="grid grid-cols-2 gap-3 p-3">
+        <div className="grid grid-cols-2 gap-2 p-2.5">
           <a
             href="https://wa.me/48690690776"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 rounded-full bg-[#25D366] text-white py-3 font-medium"
+            className="flex items-center justify-center gap-2 rounded-full bg-[#25D366] text-white py-2.5 text-sm font-medium"
           >
             <svg
               className="w-5 h-5"
@@ -658,7 +655,7 @@ export default function Home() {
 
           <a
             href="tel:+48690690776"
-            className={`flex items-center justify-center rounded-full py-3 font-medium ${theme.buttonSecondary}`}
+            className={`flex items-center justify-center rounded-full py-2.5 text-sm font-medium ${theme.buttonSecondary}`}
           >
             {t.heroCall}
           </a>
