@@ -17,27 +17,24 @@ export default function Home() {
 
     heroTitle: isEN ? "TECH SUPPORT CRAKOW" : "WSPARCIE TECH-IT KRAKÓW",
     heroDesc: isEN
-      ? "LAPTOPS REPAIR • PC REPAIR • CUSTOM PCS • WEBSITES • NETWORKS"
+      ? "LAPTOP REPAIR • PC REPAIR • CUSTOM PCS • WEBSITES • NETWORKS"
       : "SERWIS LAPTOPÓW • SERWIS PC • BUDOWA KOMPUTERÓW • TWORZENIE STRON INTERNETOWYCH • SIECI",
-    heroOffer: isEN ? "WhatsApp" : "WhatsApp",
+    heroWhatsapp: "WhatsApp",
     heroCall: isEN ? "Call now" : "Zadzwoń",
 
-    servicesTitle: isEN ? "What we do" : "Czym się zajmujemy ?",
+    servicesTitle: isEN ? "What we do" : "Czym się zajmujemy?",
+    servicesHint: isEN
+      ? "Click a service to expand details."
+      : "Kliknij usługę, aby rozwinąć szczegóły.",
 
     contactTitle: isEN ? "Contact" : "Kontakt",
     openMaps: isEN ? "Open in Google Maps" : "Otwórz w Google Maps",
 
+    stationary: isEN ? "Service location:" : "Serwis stacjonarny:",
+    brandOwner: isEN ? "Brand owner:" : "Właścicielem marki jest:",
+
     privacyTitle: isEN ? "Privacy Policy" : "Polityka prywatności",
     rights: `© ${new Date().getFullYear()} MRGEEK. All rights reserved ®`,
-
-    languageLabel: isEN ? "" : "",
-    themeLabel: isLight
-      ? isEN
-        ? ""
-        : ""
-      : isEN
-        ? ""
-        : "",
   };
 
   const services = [
@@ -48,10 +45,10 @@ export default function Home() {
         : "Kompleksowa diagnostyka i naprawa komputerów stacjonarnych, laptopów oraz urządzeń Apple. Identyfikujemy rzeczywistą przyczynę problemu zamiast maskować jego objawy, co pozwala uniknąć niepotrzebnych kosztów. Realizujemy zarówno drobne naprawy, jak i bardziej zaawansowane serwisy sprzętowe, dbając o stabilność i bezpieczeństwo urządzenia po wykonanej usłudze.",
       icon: (
         <svg
-          className="w-6 h-6"
+          className="w-5 h-5"
           fill="none"
           stroke="currentColor"
-          strokeWidth="1.5"
+          strokeWidth="1.6"
           viewBox="0 0 24 24"
         >
           <path strokeLinecap="round" strokeLinejoin="round" d="M5 7h14v10H5z" />
@@ -65,10 +62,10 @@ export default function Home() {
         : "Projektujemy i wdrażamy nowoczesne strony internetowe dopasowane do realnych potrzeb biznesu. Tworzymy rozwiązania szybkie, responsywne i intuicyjne dla użytkownika, a jednocześnie przygotowane pod widoczność w wyszukiwarkach. Skupiamy się na funkcjonalności, estetyce i przejrzystej komunikacji oferty.",
       icon: (
         <svg
-          className="w-6 h-6"
+          className="w-5 h-5"
           fill="none"
           stroke="currentColor"
-          strokeWidth="1.5"
+          strokeWidth="1.6"
           viewBox="0 0 24 24"
         >
           <path strokeLinecap="round" strokeLinejoin="round" d="M8 9l-3 3 3 3M16 9l3 3-3 3" />
@@ -82,10 +79,10 @@ export default function Home() {
         : "Składamy komputery od podstaw, dobierając komponenty precyzyjnie pod konkretne zastosowanie – od pracy biurowej po zaawansowane zestawy gamingowe. Każda konfiguracja jest zoptymalizowana pod kątem wydajności, kompatybilności i budżetu, bez przypadkowych elementów i zbędnych kosztów.",
       icon: (
         <svg
-          className="w-6 h-6"
+          className="w-5 h-5"
           fill="none"
           stroke="currentColor"
-          strokeWidth="1.5"
+          strokeWidth="1.6"
           viewBox="0 0 24 24"
         >
           <rect x="6" y="4" width="12" height="16" rx="2" />
@@ -111,30 +108,32 @@ export default function Home() {
     iconWrap: isLight ? "bg-black/10" : "bg-white/10",
     muted: isLight ? "text-gray-600" : "text-gray-400",
     border: isLight ? "border-black/10" : "border-white/10",
-    buttonPrimary: isLight
-      ? "bg-black text-white hover:scale-105"
-      : "bg-white text-black hover:scale-105",
     buttonSecondary: isLight
       ? "border border-black/20 hover:bg-black hover:text-white"
       : "border border-white/20 hover:bg-white hover:text-black",
     footerText: "text-gray-500",
+    mobileBar: isLight
+      ? "bg-white/95 border-black/10"
+      : "bg-[#0b0b0b]/95 border-white/10",
   };
 
   return (
-    <main className={`${theme.main} min-h-screen pt-20 transition-colors duration-300`}>
+    <main
+      className={`${theme.main} min-h-screen pt-20 pb-24 md:pb-0 transition-colors duration-300`}
+    >
       <header
-        className={`fixed top-0 left-0 w-full z-50 px-6 py-4 flex items-center justify-between backdrop-blur-md border-b transition-colors duration-300 ${theme.header}`}
+        className={`fixed top-0 left-0 w-full z-50 px-5 md:px-6 py-4 flex items-center justify-between backdrop-blur-md border-b transition-colors duration-300 ${theme.header}`}
       >
-        <div className="flex items-center gap-3">
+        <a href="#top" className="flex items-center gap-3">
           <img
             src={logoSrc}
             alt="MRGEEK"
             className="h-8 w-auto object-contain"
           />
-          <span className="text-sm md:text-base font-semibold tracking-wide">
+          <span className="text-sm md:text-base font-semibold tracking-[0.18em]">
             MRGEEK
           </span>
-        </div>
+        </a>
 
         <nav className={`flex gap-4 md:gap-8 text-sm ${theme.nav}`}>
           <a href="#oferta" className={`transition ${theme.navHover}`}>
@@ -148,10 +147,11 @@ export default function Home() {
 
       {/* FIXED TOGGLES */}
       <div className="fixed right-0 top-24 z-50 flex flex-col items-end gap-3">
-        {/* LANGUAGE */}
         <button
           onClick={() => setIsEN((prev) => !prev)}
           className="group flex items-center justify-center bg-orange-500 p-2 rounded-l-xl shadow-lg hover:bg-orange-600 transition"
+          aria-label="Toggle language"
+          type="button"
         >
           <div className="w-7 h-7 rounded-full overflow-hidden border border-white/30">
             {isEN ? (
@@ -175,10 +175,11 @@ export default function Home() {
           </div>
         </button>
 
-        {/* THEME */}
         <button
           onClick={() => setIsLight((prev) => !prev)}
           className="group flex items-center justify-center bg-orange-500 p-2 rounded-l-xl shadow-lg hover:bg-orange-600 transition"
+          aria-label="Toggle theme"
+          type="button"
         >
           <div className="w-7 h-7 rounded-full overflow-hidden border border-white/30 flex">
             <div className="w-1/2 h-full bg-black" />
@@ -187,36 +188,39 @@ export default function Home() {
         </button>
       </div>
 
+      {/* HERO */}
       <section
         id="top"
-        className="relative flex flex-col items-center justify-center text-center h-screen px-6 overflow-hidden"
+        className="relative flex flex-col items-center justify-center text-center min-h-screen px-6 overflow-hidden"
       >
         <div
           className={`absolute inset-0 transition-colors duration-300 ${theme.heroBg}`}
         />
 
         <FadeIn>
-          <div className="relative z-10 max-w-4xl">
+          <div className="relative z-10 max-w-5xl mx-auto">
             <img
               src={logoSrc}
               alt="MRGEEK"
               className="mx-auto mb-8 w-28 md:w-36"
             />
 
-            <h1 className="text-5xl md:text-7xl font-semibold tracking-tight mb-6">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-semibold tracking-tight leading-[1.05] mb-6">
               {t.heroTitle}
             </h1>
 
-            <p className={`text-lg md:text-xl mb-10 leading-relaxed ${theme.heroText}`}>
+            <p
+              className={`max-w-4xl mx-auto text-base sm:text-lg md:text-xl leading-relaxed mb-10 ${theme.heroText}`}
+            >
               {t.heroDesc}
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <a
                 href="https://wa.me/48690690776"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-3 rounded-full font-medium flex items-center gap-3 justify-center bg-[#25D366] text-white hover:scale-105 transition"
+                className="w-full sm:w-auto px-8 py-3 rounded-full font-medium flex items-center gap-3 justify-center bg-[#25D366] text-white hover:scale-105 transition shadow-lg"
               >
                 <svg
                   className="w-5 h-5"
@@ -226,12 +230,12 @@ export default function Home() {
                 >
                   <path d="M20.52 3.48A11.86 11.86 0 0012.04 0C5.52 0 .25 5.27.25 11.79c0 2.08.54 4.12 1.57 5.92L0 24l6.49-1.7a11.76 11.76 0 005.55 1.41h.01c6.52 0 11.79-5.27 11.79-11.79 0-3.15-1.23-6.12-3.32-8.44zM12.05 21.4h-.01a9.6 9.6 0 01-4.88-1.33l-.35-.21-3.85 1.01 1.03-3.75-.23-.38a9.6 9.6 0 01-1.47-5.11c0-5.32 4.33-9.65 9.65-9.65 2.58 0 5 1.01 6.83 2.84a9.58 9.58 0 012.82 6.81c0 5.32-4.33 9.65-9.64 9.65zm5.29-7.2c-.29-.15-1.7-.84-1.97-.94-.26-.1-.45-.15-.64.15-.19.29-.74.94-.91 1.13-.17.19-.34.22-.63.07-.29-.15-1.23-.45-2.35-1.44-.87-.77-1.46-1.72-1.63-2.01-.17-.29-.02-.45.13-.6.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.15-.64-1.54-.88-2.11-.23-.55-.47-.48-.64-.49h-.55c-.19 0-.51.07-.77.36-.26.29-1 1-.99 2.43 0 1.43 1.02 2.81 1.16 3 .14.19 2 3.05 4.85 4.27.68.29 1.21.46 1.63.59.68.22 1.3.19 1.79.12.55-.08 1.7-.7 1.94-1.37.24-.67.24-1.24.17-1.37-.07-.12-.26-.19-.55-.34z" />
                 </svg>
-                {t.heroOffer}
+                {t.heroWhatsapp}
               </a>
 
               <a
                 href="tel:+48690690776"
-                className={`px-8 py-3 rounded-full transition ${theme.buttonSecondary}`}
+                className={`w-full sm:w-auto px-8 py-3 rounded-full transition ${theme.buttonSecondary}`}
               >
                 {t.heroCall}
               </a>
@@ -240,14 +244,20 @@ export default function Home() {
         </FadeIn>
       </section>
 
+      {/* SERVICES */}
       <section id="oferta" className="px-6 py-24 max-w-6xl mx-auto">
         <FadeIn>
-          <h2 className="text-3xl md:text-4xl font-semibold mb-16 text-center">
-            {t.servicesTitle}
-          </h2>
+          <div className="text-center mb-14">
+            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-4">
+              {t.servicesTitle}
+            </h2>
+            <p className={`text-sm md:text-base ${theme.muted}`}>
+              {t.servicesHint}
+            </p>
+          </div>
         </FadeIn>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-6 md:gap-8">
           {services.map((item, i) => {
             const isOpen = openIndex === i;
 
@@ -255,22 +265,24 @@ export default function Home() {
               <FadeIn key={i}>
                 <div
                   onClick={() => setOpenIndex(isOpen ? null : i)}
-                  className={`group p-8 rounded-2xl border transition cursor-pointer ${theme.card}`}
+                  className={`group p-7 md:p-8 rounded-2xl border transition cursor-pointer ${theme.card}`}
                 >
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-4">
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="flex items-start gap-4 min-w-0">
                       <div
-                        className={`w-10 h-10 rounded-full flex items-center justify-center transition group-hover:scale-110 ${theme.iconWrap}`}
+                        className={`mt-0.5 w-10 h-10 rounded-full flex items-center justify-center transition shrink-0 group-hover:scale-110 ${theme.iconWrap}`}
                       >
                         {item.icon}
                       </div>
 
-                      <h3 className="text-lg font-medium">
+                      <h3 className="text-base md:text-lg font-medium leading-snug">
                         {item.title}
                       </h3>
                     </div>
 
-                    <div className={`transition transform ${isOpen ? "rotate-180" : ""}`}>
+                    <div
+                      className={`transition transform shrink-0 ${isOpen ? "rotate-180" : ""}`}
+                    >
                       <svg
                         className={`w-5 h-5 ${theme.muted}`}
                         fill="none"
@@ -289,8 +301,8 @@ export default function Home() {
                     }}
                     className="overflow-hidden transition-all duration-500 ease-in-out"
                   >
-                    <div className="pt-4">
-                      <p className={`text-sm leading-relaxed ${theme.muted}`}>
+                    <div className="pt-5">
+                      <p className={`text-sm md:text-[15px] leading-7 ${theme.muted}`}>
                         {item.desc}
                       </p>
                     </div>
@@ -302,10 +314,11 @@ export default function Home() {
         </div>
       </section>
 
+      {/* CONTACT */}
       <section id="kontakt" className={`px-6 py-24 border-t ${theme.border}`}>
         <FadeIn>
           <div className="max-w-5xl mx-auto text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-semibold">
+            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">
               {t.contactTitle}
             </h2>
           </div>
@@ -315,8 +328,8 @@ export default function Home() {
           <div
             className={`max-w-5xl mx-auto rounded-2xl border backdrop-blur p-8 md:p-12 ${theme.card}`}
           >
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-10">
-              <div className="flex flex-col gap-6">
+            <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-10">
+              <div className="flex flex-col gap-6 md:max-w-[46%]">
                 <div className="flex items-center gap-4">
                   <div
                     className={`w-10 h-10 rounded-full flex items-center justify-center ${theme.iconWrap}`}
@@ -365,31 +378,27 @@ export default function Home() {
 
                   <a
                     href="mailto:kontakt@mrgeek.pl"
-                    className="text-lg font-medium hover:opacity-70 transition"
+                    className="text-lg font-medium hover:opacity-70 transition break-all"
                   >
                     kontakt@mrgeek.pl
                   </a>
                 </div>
 
-                <div className={`text-sm mt-4 ${theme.muted}`}>
-                  {isEN ? "Service location:" : "Serwis stacjonarny:"}
-                  <p className="font-medium mb-2 text-current">
-                    MRGEEK
-                  </p>
+                <div className={`text-sm leading-7 ${theme.muted}`}>
+                  <p className="mb-1">{t.stationary}</p>
+                  <p className="font-medium mb-2 text-current">MRGEEK</p>
                   <p>ul. Dobrego Pasterza 100</p>
                   <p>31-416 Kraków</p>
                   <p>tel: +48 690 690 776</p>
                   <p>email: kontakt@mrgeek.pl</p>
                 </div>
 
-                <div className={`text-sm mt-4 ${theme.muted}`}>
-                  {isEN ? "Brand owner:" : "Właścicielem marki jest:"}
-                  <p className="font-medium mb-2 text-current">
-                    ASPERION Łukasz Korgul
-                  </p>
+                <div className={`text-sm leading-7 ${theme.muted}`}>
+                  <p className="mb-1">{t.brandOwner}</p>
+                  <p className="font-medium mb-2 text-current">ASPERION Łukasz Korgul</p>
                   <p>ul. Karola Darwina 62GE/2</p>
                   <p>31-764 Kraków</p>
-                  <p className="mt-2">NIP: 5562441108</p>
+                  <p className="mt-1">NIP: 5562441108</p>
                   <p>REGON: 093214846</p>
                   <p>tel: +48 690 690 776</p>
                   <p>email: kontakt@asperion.pl</p>
@@ -422,6 +431,7 @@ export default function Home() {
         </FadeIn>
       </section>
 
+      {/* FOOTER */}
       <section className={`px-6 py-16 border-t ${theme.border}`}>
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           <p className={`text-sm text-center md:text-left ${theme.footerText}`}>
@@ -445,7 +455,7 @@ export default function Home() {
           }`}
         >
           <div
-            className={`rounded-2xl p-8 text-sm leading-relaxed space-y-6 border ${theme.card}`}
+            className={`rounded-2xl p-8 text-sm leading-7 space-y-6 border ${theme.card}`}
           >
             {isEN ? (
               <>
@@ -575,6 +585,37 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* MOBILE CONTACT BAR */}
+      <div
+        className={`md:hidden fixed bottom-0 left-0 w-full z-50 border-t backdrop-blur-md ${theme.mobileBar}`}
+      >
+        <div className="grid grid-cols-2 gap-3 p-3">
+          <a
+            href="https://wa.me/48690690776"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 rounded-full bg-[#25D366] text-white py-3 font-medium"
+          >
+            <svg
+              className="w-5 h-5"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path d="M20.52 3.48A11.86 11.86 0 0012.04 0C5.52 0 .25 5.27.25 11.79c0 2.08.54 4.12 1.57 5.92L0 24l6.49-1.7a11.76 11.76 0 005.55 1.41h.01c6.52 0 11.79-5.27 11.79-11.79 0-3.15-1.23-6.12-3.32-8.44zM12.05 21.4h-.01a9.6 9.6 0 01-4.88-1.33l-.35-.21-3.85 1.01 1.03-3.75-.23-.38a9.6 9.6 0 01-1.47-5.11c0-5.32 4.33-9.65 9.65-9.65 2.58 0 5 1.01 6.83 2.84a9.58 9.58 0 012.82 6.81c0 5.32-4.33 9.65-9.64 9.65zm5.29-7.2c-.29-.15-1.7-.84-1.97-.94-.26-.1-.45-.15-.64.15-.19.29-.74.94-.91 1.13-.17.19-.34.22-.63.07-.29-.15-1.23-.45-2.35-1.44-.87-.77-1.46-1.72-1.63-2.01-.17-.29-.02-.45.13-.6.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.15-.64-1.54-.88-2.11-.23-.55-.47-.48-.64-.49h-.55c-.19 0-.51.07-.77.36-.26.29-1 1-.99 2.43 0 1.43 1.02 2.81 1.16 3 .14.19 2 3.05 4.85 4.27.68.29 1.21.46 1.63.59.68.22 1.3.19 1.79.12.55-.08 1.7-.7 1.94-1.37.24-.67.24-1.24.17-1.37-.07-.12-.26-.19-.55-.34z" />
+            </svg>
+            WhatsApp
+          </a>
+
+          <a
+            href="tel:+48690690776"
+            className={`flex items-center justify-center rounded-full py-3 font-medium ${theme.buttonSecondary}`}
+          >
+            {t.heroCall}
+          </a>
+        </div>
+      </div>
     </main>
   );
 }
